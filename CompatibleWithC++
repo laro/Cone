@@ -1,0 +1,18 @@
+- Compatible to C, C++ and maybe other languages of this „language family“
+    - as with
+        - Java: Kotlin, Scala, Groovy, Clojure, Fantom, Ceylon, Jython, JRuby …
+        - C#: C++/CLI, F#, Visual Basic .NET, Ada, IronPython, IronRuby …
+        - Objective-C: Swift
+    - Possible to include
+        - C++ headers and modules from Cone
+        - Cone headers and modules from C++
+    - Language is recognised by
+        - the file extension
+            - C++: *.cpp *.hpp *.cxx *.hxx *.h
+            - C: *.c *.h
+                - *.h is of course a problem, but can probably best be solved using path based rules.
+            - Cone: *.cone *.hone *.c1 *.h1 *.co *.ho
+        - path based rules
+            - C++ standard headers in certain directories 
+        - can be set in IDE
+            - for each file individually 
