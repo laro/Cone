@@ -254,3 +254,25 @@ Int (i.e. signed) as type for *.size()
 - So no ~~WideChar~~
     - ~~Or is it useful for portable code (Linux UInt32 <-> Windows UInt16)?~~
         - ~~You may use wchar_t then.~~
+     
+## Namespace "cone"
+Standard namespace is „cone“~~, „c1“~~ (instead of "std")
+- With „improved“ version of every standard class/concept (i.e. uppercase class names and camelCase function and variable names)
+    - e.g. „cone::String : protected std::string“
+- „Alias“ for 
+    - member variables
+        - using x = data[0]
+           using y = data[1]
+            - ~~or „alias x = data[0]“?~~
+        - Not quite possible in C++.
+            - With …
+                - Float& imaginary = im
+                - T& x = data[0]
+            - … unfortunately memory is created for the reference (the pointer).
+            - And this indeed is necessary here, because the reference could be assigned differently in the constructor,
+                - so it is not possible to optimieren it away.
+    - member functions
+        - „using f() = g()“
+        - ~~Or is perfect forwarding enough?~~
+            - ~~https://stackoverflow.com/a/9864472~~
+            - This would not work for virtual functions
