@@ -1,6 +1,5 @@
 # Cone
-C++ with CamelCase style
-
+C++ with CamelCase style  
 C++ without semicolons
 
 - Pronounced „see one“
