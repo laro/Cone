@@ -1,2 +1,3 @@
 # Cone
-C++ with CamelCase style and without semicolons
+C++ with CamelCase style
+C++ without semicolons
