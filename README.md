@@ -10,7 +10,6 @@ C++ with simplified syntax
     - in the _style_ of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter „expression“.
-    - ~~May I call this "modern"?~~
     - C++ Successor Language
         - like CppFront/Cpp2, Carbon or Circle
         - Similar to
@@ -156,22 +155,22 @@ C++ with simplified syntax
         - ~~The conversion of a negative number into `Size` leads to an error instead of delivering a HUGE size ~~
 
 ## String, Char & CodePoint
-- cone::String with UTF-8 support
-    - Basic/standard unicode support (cone::String)
+- `cone::String` with UTF-8 support
+    - _Basic/standard_ unicode support
         - Iteration over:
             - code units (i.e. Bytes with UTF-8)
-                - „for codeUnit in text.asArray()“
-                - „for codeUnit in text.asCodeUnits()“?
-                - ~~„for codeUnit in text.byCodeUnit()“?~~
-                - ~~„for codeUnit in text.byChar()“?~~
-            - code points (always UInt32, with UTF-8, UTF-16, and UTF-32)
-                - „for codePoint in text.asCodePoints()“
-                - ~~„for codePoint in text.byCodePoint()“?~~
-            - grapheme clusters (i.e. may consist of multiple code points, default form of iteration, using StringView)
-                - for graphemeCluster in „abc 🥸“ (this is the default type of iteration)
+                - `for codeUnit in text.asArray()`
+                - `fr codeUnit in text.asCodeUnits()`?
+                - ~~`for codeUnit in text.byCodeUnit()`?~~
+                - ~~`for codeUnit in text.byChar()`?~~
+            - code points (always `UInt32`, with UTF-8, UTF-16, and UTF-32)
+                - `for codePoint in text.asCodePoints()`
+                - ~~`for codePoint in text.byCodePoint()`?~~
+            - grapheme clusters (i.e. may consist of multiple code points, default form of iteration, using `StringView`)
+                - for graphemeCluster in `abc 🥸` (this is the default type of iteration)
                 - additional/alternative names?
-                    - for graphemeCluster in text.asGraphemeClusters()? (as
-                    - ~~for graphemeCluster in text.byGraphemeCluster()?~~
+                    - `for graphemeCluster in text.asGraphemeClusters()`? (as
+                    - ~~`for graphemeCluster in text.byGraphemeCluster()`?~~
     - Advanced support based on [ICU](https://unicode-org.github.io/icu/userguide/icu4c/) („International Components for Unicode“, „ICU4C“).
         - „The ICU libraries provide support for:
             - The latest version of the Unicode standard
@@ -184,17 +183,17 @@ C++ with simplified syntax
             - Date/Number/Message formatting and parsing of culture specific input/output formats
             - Calendar specific date and time manipulation
             - Text boundary analysis for finding characters, word and sentence boundaries“
-        - „import icu“ adds extension methods for cone::String
+        - `import icu` adds extension methods for `cone::String`
             - Allows iteration over:
                 - words (important/difficult for Chinese, Japanese, Thai or Khmer, needs list of words)
-                    - „for word in text.asWords()“
-                    - ~~„for word in text.byWord()“~~
+                    - `for word in text.asWords()`
+                    - ~~`for word in text.byWord()`~~
                 - lines
-                    - „for word in text.asLines()“
-                    - ~~„for line in text.byLine()“~~
+                    - `for word in text.asLines()`
+                    - ~~`for line in text.byLine()`~~
                 - sentences (needs list of abbreviations, like „e.g.“, „i.e.“, „o.ä.“)
-                    - „for sentence in text.asSentences()“
-                    - ~~„for sentence in text.bySentence()“~
+                    - `for sentence in text.asSentences()`
+                    - ~~`for sentence in text.bySentence()`~~
     - string.toUpper(), string.toLower()
         - toUpper(Sting) -> String
         - toLower(Sting) -> String
