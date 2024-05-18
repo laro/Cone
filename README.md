@@ -261,17 +261,13 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
     - e.g. „cone::String : protected std::string“
 - „**Alias**“ for 
     - member variables
-        ```
-        using x = data[0]  
-         using y = data[1]
-        ```
+        `using x = data[0]`  
+         `using y = data[1]`
         - ~~or `alias x = data[0]`?~~
         - Not quite possible in C++.
             - With …
-                ```
-                Float& imaginary = im
-                T& x = data[0]
-                ```
+                `Float& imaginary = im`
+                `T& x = data[0]`
             - … unfortunately memory is created for the reference (the pointer).
             - And this indeed is necessary here, because the reference could be assigned differently in the constructor,
                 - so it is not possible to optimieren it away.
@@ -304,7 +300,7 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
         - `concat(String first, String second)`
             - instead of `concat(const String& first, const String& second)`
         - `String[] stringArray = ["a", "b", "c"]`  
-          `for str in stringArray  { … }`
+          `for str in stringArray { … }`
             - `str` is `const String&`
             - If you want to have it differently:
                 - `for mutable str in stringArray { … }`
@@ -314,7 +310,7 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
                 - `for mutable value str in stringArray { … }`
                     - `str` is `String`
         - `for str in ["a", "b", "c"]  { … }`
-            - `str`" is `const StringView`
+            - `str` is `const StringView`
         - `for i in [1, 2, 3] { … }`
             - `i` is `const Int`
             - If you want to have it differently:
