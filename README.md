@@ -160,7 +160,7 @@ C++ with simplified syntax
         - Iteration over:
             - code units (i.e. Bytes with UTF-8)
                 - `for codeUnit in text.asArray()`
-                - `fr codeUnit in text.asCodeUnits()`?
+                - `for codeUnit in text.asCodeUnits()`?
                 - ~~`for codeUnit in text.byCodeUnit()`?~~
                 - ~~`for codeUnit in text.byChar()`?~~
             - code points (always `UInt32`, with UTF-8, UTF-16, and UTF-32)
@@ -169,7 +169,7 @@ C++ with simplified syntax
             - grapheme clusters (i.e. may consist of multiple code points, default form of iteration, using `StringView`)
                 - for graphemeCluster in `abc 🥸` (this is the default type of iteration)
                 - additional/alternative names?
-                    - `for graphemeCluster in text.asGraphemeClusters()`? (as
+                    - `for graphemeCluster in text.asGraphemeClusters()`?
                     - ~~`for graphemeCluster in text.byGraphemeCluster()`?~~
     - Advanced support based on [ICU](https://unicode-org.github.io/icu/userguide/icu4c/) („International Components for Unicode“, „ICU4C“).
         - „The ICU libraries provide support for:
@@ -194,20 +194,20 @@ C++ with simplified syntax
                 - sentences (needs list of abbreviations, like „e.g.“, „i.e.“, „o.ä.“)
                     - `for sentence in text.asSentences()`
                     - ~~`for sentence in text.bySentence()`~~
-    - string.toUpper(), string.toLower()
-        - toUpper(Sting) -> String
-        - toLower(Sting) -> String
+    - `string.toUpper()`, `string.toLower()`
+        - `toUpper(Sting) -> String`
+        - `toLower(Sting) -> String`
     - Sorting
-- StringView
+- `StringView`
     - to iterate over all grapheme clusters (i.e. may consist of multiple code points) of a string
-        - for grapheme in „abc 🥸👮🏻“
-            - „a“, „b“, „c“, „ “, „🥸“, „👮🏻“
+        - `for grapheme in „abc 🥸👮🏻“`
+            - `„a“`, `„b“`, `„c“`, `„ “`, `„🥸“`, `„👮🏻“`
             - „\x61“, „\x62“, „\x63“, „\x20“, „\xf0\x9f\xa5\xb8“, „\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb“
     - A bit slow, as it has to find grapheme cluster boundaries.
     - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-based iteration. But when you do, this probably is the correct way. 
-- CodePoint == UInt32
+- `CodePoint` == `UInt32`
     - to iterate over all code points of a string,
-            - for codePoint in „abc 🥸👮🏻“.asCodePoints()
+            - `for codePoint in „abc 🥸👮🏻“.asCodePoints()`
             - 0x61, 0x62, 0x63, 0x20, 0x1F978, 0x1F46E, 0x1F3FB 
     - Independent of the encoding (so, the same for UTF-8/16/32),
         - called „auto decoding“ in D.
@@ -218,41 +218,41 @@ C++ with simplified syntax
             - diacritical characters (äöü…, depending on the normal form chosen),
             - surely some more …
         - Often slower than UTF-8, due to its size (cache, memory bandwidth)
-- Char == Char8 == UInt8
+- `Char` == `Char8` == `UInt8`
     - to iterate over all code units (bytes/characters) of an UTF-8 string,
-        - for ch in „abc 🥸👮🏻“.asArray()
-        - for ch in „abc 🥸👮🏻“utf8.asArray()
-        - for ch in UTF8String(„abc 🥸👮🏻“).asArray()
+        - `for ch in „abc 🥸👮🏻“.asArray()`
+        - `for ch in „abc 🥸👮🏻“utf8.asArray()`
+        - `for ch in UTF8String(„abc 🥸👮🏻“).asArray()`
             - 0x61, 0x62, 0x63, 0x20, &nbsp; 0xf0, 0x9f, 0xa5, 0xb8, &nbsp; 0xf0, 0x9f, 0x91, 0xae, 0xf0, 0x9f, 0x8f, 0xbb
     - to iterate over all bytes/characters of an ASCII string,
-        - for ch in „abc“ascii
+        - `for ch in „abc“ascii`
             - Compilation error, if string contains non-ASCII characters.
-        - for ch in ASCIIString(„abc“)
+        - `for ch in ASCIIString(„abc“)`
             - Exception thrown, if string contains non-ASCII characters.
             - 0x61, 0x62, 0x63
             - ‚a‘, ‚b‘, ‚c‘
     - to iterate over all bytes/characters of a Latin1 (ISO 8859-1) string,
-        - for ch in „äbc“latin1
+        - `for ch in „äbc“latin1`
             - Compilation error, if string contains non-Latin1 characters.
-        - for ch in Latin1String(„äbc“)
+        - `for ch in Latin1String(„äbc“)`
             - Exception thrown, if string contains non-Latin1 characters.
             - 0xe4, 0x62, 0x63
             - ‚ä‘, ‚b‘, ‚c‘
-- Char16 == UInt16
-    - to iterate over strings encoded as UTF-16 with „.asArray()“
-        - for ch16 in „abc 🥸👮🏻“utf16.asArray()
-        - for ch16 in UTF16String(„abc 🥸👮🏻“).asArray()
+- `Char16` == `UInt16`
+    - to iterate over strings encoded as UTF-16 with `.asArray()`
+        - `for ch16 in „abc 🥸👮🏻“utf16.asArray()`
+        - `for ch16 in UTF16String(„abc 🥸👮🏻“).asArray()`
             - 0x0061, 0x0062, 0x0063, 0x0020, &nbsp; 0xD83E, 0xDD78, &nbsp; 0xD83D, 0xDC6E, 0xD83C, 0xDFFB
-- Char32 == UInt32
+- `Char32` == `UInt32`
     - to iterate over strings encoded as UTF-32 with „.asArray()“
-        - for ch32 in „abc 🥸👮🏻“utf32.asArray()
-        - for ch32 in UTF32String(„abc 🥸👮🏻“).asArray()
+        - `for ch32 in „abc 🥸👮🏻“utf32.asArray()`
+        - `for ch32 in UTF32String(„abc 🥸👮🏻“).asArray()`
             - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E , 0x0001F3FB
-- Char8 == UInt8, Char16 == UInt16, Char32 == UInt32
+- `Char8` == `UInt8`, `Char16` == `UInt16`, `Char32` == `UInt32`
     - (considered as _different_ types for parameter overloading)
-- So no ~~WideChar~~
-    - ~~Or is it useful for portable code (Linux UInt32 <-> Windows UInt16)?~~
-        - ~~You may use wchar_t then.~~
+- So no ~~`WideChar`~~
+    - ~~Or is it useful for portable code (Linux `UInt32` <-> Windows `UInt16`)?~~
+        - ~~You may use `wchar_t` then.~~
      
 ## Namespace `cone`
 Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
