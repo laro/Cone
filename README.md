@@ -203,7 +203,7 @@ Int (i.e. signed) as type for *.size()
     - to iterate over all grapheme clusters (i.e. may consist of multiple code points) of a string
         - for grapheme in „abc 🥸👮🏻“
             - „a“, „b“, „c“, „ “, „🥸“, „👮🏻“
-            - „\x61“, „\x62“, „\x63“, „\x20“, „\xf0\x9f,\xa5\xb8“, „\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb“
+            - „\x61“, „\x62“, „\x63“, „\x20“, „\xf0\x9f\xa5\xb8“, „\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb“
     - A bit slow, as it has to find grapheme cluster boundaries.
     - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-based iteration. But when you do, this probably is the correct way. 
 - CodePoint == UInt32
@@ -224,7 +224,7 @@ Int (i.e. signed) as type for *.size()
         - for ch in „abc 🥸👮🏻“.asArray()
         - for ch in „abc 🥸👮🏻“utf8.asArray()
         - for ch in UTF8String(„abc 🥸👮🏻“).asArray()
-            - 0x61, 0x62, 0x63, 0x20,   0xf0, 0x9f, 0xa5, 0xb8,   0xf0, 0x9f, 0x91, 0xae, 0xf0, 0x9f, 0x8f, 0xbb
+            - 0x61, 0x62, 0x63, 0x20, &nbsp; 0xf0, 0x9f, 0xa5, 0xb8, &nbsp; 0xf0, 0x9f, 0x91, 0xae, 0xf0, 0x9f, 0x8f, 0xbb
     - to iterate over all bytes/characters of an ASCII string,
         - for ch in „abc“ascii
             - Compilation error, if string contains non-ASCII characters.
@@ -243,12 +243,12 @@ Int (i.e. signed) as type for *.size()
     - to iterate over strings encoded as UTF-16 with „.asArray()“
         - for ch16 in „abc 🥸👮🏻“utf16.asArray()
         - for ch16 in UTF16String(„abc 🥸👮🏻“).asArray()
-            - 0x0061, 0x0062, 0x0063, 0x0020,   0xD83E, 0xDD78,   0xD83D, 0xDC6E, 0xD83C, 0xDFFB
+            - 0x0061, 0x0062, 0x0063, 0x0020, &nbsp; 0xD83E, 0xDD78, &nbsp; 0xD83D, 0xDC6E, 0xD83C, 0xDFFB
 - Char32 == UInt32
     - to iterate over strings encoded as UTF-32 with „.asArray()“
         - for ch32 in „abc 🥸👮🏻“utf32.asArray()
         - for ch32 in UTF32String(„abc 🥸👮🏻“).asArray()
-            - 0x00000061, 0x00000062, 0x00000063, 0x00000020,   0x0001F978,   0x0001F46E , 0x0001F3FB
+            - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E , 0x0001F3FB
 - Char8 == UInt8, Char16 == UInt16, Char32 == UInt32
     - (considered as _different_ types for parameter overloading)
 - So no ~~WideChar~~
