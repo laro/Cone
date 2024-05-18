@@ -333,3 +333,26 @@ Const reference/value as default type for function call arguments and for „for
             - `str` is `String`
     - `for i in 1..<10 { … }`
         - `i` is `const Int`
+
+## Better Readable Keywords
+C++ has a „tradition“ of complicated keywords or reuse of keywords, simply as to avoid compatibility problems with old code, which may have used one of the new keywords as name (of a variable, function, class, or namespace).
+- Cone has
+    - `var` instead of `auto`
+    - `func` instead of `auto`
+    - `for … in …` instead of `for (… : …)`
+    - `class … extends …` instead of `class … : …`
+        - or better `implements`?
+    - `await` instead of `co_await`
+    - `yield` instead of `co_yield`
+    - `return` instead of `co_return`
+    - `and`, `or`, `xor`, `not` instead of `&&`, `||`, `^`, `!`
+        - as in Carbon, Python
+        - Used for both
+            - boolean operation
+                - `anBool **and** anotherBool` -> `Bool`
+            - bitwise operation
+                - `anInt **and** anotherInt` -> `Int`
+- When translating C++ code to Cone then change conflicting names, e.g.
+    - `int var` -> `Int __variable_var`
+    - `class func` -> `class __class_func`
+    - `yield()` -> `func __function_yield()`
