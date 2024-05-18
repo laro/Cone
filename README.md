@@ -307,9 +307,9 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
           `for str in stringArray  { … }`
             - `str` is `const String&`
             - If you want to have it differently:
-                - `for mutable str in stringArray  { … }`
+                - `for mutable str in stringArray { … }`
                     - `str` is `String&`
-                - `for value str in stringArray  { … }`
+                - `for value str in stringArray { … }`
                     - `str` is `const String`
                 - `for mutable value str in stringArray { … }`
                     - `str` is `String`
@@ -325,15 +325,15 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
                 - `for mutable reference i in [1, 2, 3] { … `}“
                     - `i` is `Int&`
         - If you want even the basic type to be different:
-            - `for Double d in [1, 2, 3]  { … }`
+            - `for Double d in [1, 2, 3] { … }`
                 - `d` is `const Double`
-            - `for String str in ["a", "b", "c"]  { … }`
+            - `for String str in ["a", "b", "c"] { … }`
                 - `str` is `const String&`
-            - `for mutable String str in ["a", "b", "c"]  { … }`
+            - `for mutable String str in ["a", "b", "c"] { … }`
                 - `str` is `String&`
-            - `for value String str in ["a", "b", "c"]  { … }`
+            - `for value String str in ["a", "b", "c"] { … }`
                 - `str` is `const String`
-            - `for mutable value String str in ["a", "b", "c"]  { … }`
+            - `for mutable value String str in ["a", "b", "c"] { … }`
                 - `str` is `String`
         - `for i in 1..<10 { … }`
             - `i` is `const Int`
