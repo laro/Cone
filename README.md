@@ -7,7 +7,7 @@ C++ with simplified syntax
 - **Cone**, COne, cOne, c1, C1
 - „Improved“ C++
     - with a **simplified** syntax,
-    - in the style of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
+    - in the _style_ of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter „expression“.
     - ~~May I call this "modern"?~~
@@ -20,7 +20,7 @@ C++ with simplified syntax
             - JavaScript -> TypeScrtipt
     - Uses the same compiler backend as C++ (clang, gcc, …)
         - with an own / a new compiler frontend (or a precompiler)
-    - So no garbage collection 
+    - So _no_ garbage collection 
         - Instead use
             - RAII (Resource Acquisition is Initialization)
                 - RROD (Resource Release on Object Destruction)
@@ -45,6 +45,7 @@ C++ with simplified syntax
         - can be set in IDE
             - for each file individually 
 
+## Style
 - All types and standard classes in upper CamelCase
     - Style similar to Kotlin, Swift
     - Cone standard library („cone::“ instead of „std::“)
@@ -73,3 +74,9 @@ C++ with simplified syntax
             - BigFloat for Arbitrary Precision Float
         - Byte == UInt8
         - Char == UInt8, CodePoint == UInt32
+
+- Functions in lower camelCase
+    - Roughly in the style of Qt, Objective-C/C++, Java, JavaScript, TypeScript, Kotlin, Swift
+
+- Namespaces fully lowercase 
+    - Standard namespace „cone“~~, „c1“ ~~
