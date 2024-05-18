@@ -255,10 +255,10 @@ Int (i.e. signed) as type for *.size()
     - ~~Or is it useful for portable code (Linux UInt32 <-> Windows UInt16)?~~
         - ~~You may use wchar_t then.~~
      
-## Namespace "cone"
-Standard namespace is „cone“~~, „c1“~~ (instead of "std")
+## Namespace `cone`
+Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
 - With Cone version of every standard class/concept (i.e. uppercase class names and camelCase function and variable names)
-    - e.g. „cone::String : protected std::string“
+    - e.g. `cone::String : protected std::string`
 - „**Alias**“ for 
     - member variables
        `using x = data[0]`  
@@ -278,58 +278,58 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
             - This would not work for virtual functions
 
 ## Const Reference as Default Type
-- Const reference/value as default type for function call arguments and for „for-in“ (AKA „for-each“, „foreach“)
-    - `mutable`, to mark as changeable
-        - Also at the caller `swap(mutable a, mutable b)`
-        - ~~Or `inout`?~~
-    - `value`, to mark as value (not reference) 
-        - `mutable value`
-        - Is not specified when calling the function, as a copy is created here.
-    - `reference`, to mark as reference (not value)
-    - RValue references still as `&&`
-    - Type traits `default_argument_type`
-        - As const _value_:
-            - `Int`, `Float`, `Bool` etc.
-            - Small classes (as `Complex<Float>`, `StringView`) 
-        - As const _reference_:
-            - All other cases
-        - Therefore probably best to have const reference as general default, „list of exceptions“ for the „value types“.
-        - ~~Or (similar to C# and Swift) const-reference for `classes`, const-value for `structs`?~~
-            - ~~At least as default?~~
-    - Examples:
-        - `concat(String first, String second)`
-            - instead of `concat(const String& first, const String& second)`
-        - `String[] stringArray = ["a", "b", "c"]`  
-          `for str in stringArray { … }`
-            - `str` is `const String&`
-            - If you want to have it differently:
-                - `for mutable str in stringArray { … }`
-                    - `str` is `String&`
-                - `for value str in stringArray { … }`
-                    - `str` is `const String`
-                - `for mutable value str in stringArray { … }`
-                    - `str` is `String`
-        - `for str in ["a", "b", "c"]  { … }`
-            - `str` is `const StringView`
-        - `for i in [1, 2, 3] { … }`
-            - `i` is `const Int`
-            - If you want to have it differently:
-                - `for mutable i in [1, 2, 3] { … }`
-                    - `i` is `Int`
-                - `for reference i in [1, 2, 3] { … }`
-                    - `i` is `const Int&`
-                - `for mutable reference i in [1, 2, 3] { … `}“
-                    - `i` is `Int&`
-        - If you want even the basic type to be different:
-            - `for Double d in [1, 2, 3] { … }`
-                - `d` is `const Double`
-            - `for String str in ["a", "b", "c"] { … }`
-                - `str` is `const String&`
-            - `for mutable String str in ["a", "b", "c"] { … }`
+Const reference/value as default type for function call arguments and for „for-in“ (AKA „for-each“, „foreach“).
+- `mutable`, to mark as changeable
+    - Also at the caller `swap(mutable a, mutable b)`
+    - ~~Or `inout`?~~
+- `value`, to mark as value (not reference) 
+    - `mutable value`
+    - Is not specified when calling the function, as a copy is created here.
+- `reference`, to mark as reference (not value)
+- RValue references still as `&&`
+- Type traits `default_argument_type`
+    - As const _value_:
+        - `Int`, `Float`, `Bool` etc.
+        - Small classes (as `Complex<Float>`, `StringView`) 
+    - As const _reference_:
+        - All other cases
+    - Therefore probably best to have const reference as general default, „list of exceptions“ for the „value types“.
+    - ~~Or (similar to C# and Swift) const-reference for `classes`, const-value for `structs`?~~
+        - ~~At least as default?~~
+- Examples:
+    - `concat(String first, String second)`
+        - instead of `concat(const String& first, const String& second)`
+    - `String[] stringArray = ["a", "b", "c"]`  
+      `for str in stringArray { … }`
+        - `str` is `const String&`
+        - If you want to have it differently:
+            - `for mutable str in stringArray { … }`
                 - `str` is `String&`
-            - `for value String str in ["a", "b", "c"] { … }`
+            - `for value str in stringArray { … }`
                 - `str` is `const String`
-            - `for mutable value String str in ["a", "b", "c"] { … }`
+            - `for mutable value str in stringArray { … }`
                 - `str` is `String`
-        - `for i in 1..<10 { … }`
-            - `i` is `const Int`
+    - `for str in ["a", "b", "c"] { … }`
+        - `str` is `const StringView`
+    - `for i in [1, 2, 3] { … }`
+        - `i` is `const Int`
+        - If you want to have it differently:
+            - `for mutable i in [1, 2, 3] { … }`
+                - `i` is `Int`
+            - `for reference i in [1, 2, 3] { … }`
+                - `i` is `const Int&`
+            - `for mutable reference i in [1, 2, 3] { … `}“
+                - `i` is `Int&`
+    - If you want even the basic type to be different:
+        - `for Double d in [1, 2, 3] { … }`
+            - `d` is `const Double`
+        - `for String str in ["a", "b", "c"] { … }`
+            - `str` is `const String&`
+        - `for mutable String str in ["a", "b", "c"] { … }`
+            - `str` is `String&`
+        - `for value String str in ["a", "b", "c"] { … }`
+            - `str` is `const String`
+        - `for mutable value String str in ["a", "b", "c"] { … }`
+            - `str` is `String`
+    - `for i in 1..<10 { … }`
+        - `i` is `const Int`
