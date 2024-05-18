@@ -270,7 +270,7 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
               `T& x = data[0]`  
               … unfortunately memory is created for the reference (the pointer).
             - And this indeed is necessary here, because the reference could be assigned differently in the constructor,
-                - so it is not possible to optimieren it away.
+                - so it is not possible to optimize it away.
     - member functions
         - `using f() = g()`
         - ~~Or is perfect forwarding enough?~~
