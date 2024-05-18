@@ -3,8 +3,8 @@ C++ with CamelCase style
 C++ without semicolons  
 C++ with simplified syntax
 
-- **Cone**, COne, cOne, c1, C1
-    - Pronounced „see one“
+- **Cone**, COne, cOne, c1, C1,  
+  Pronounced „see one“
 - „Improved“ C++
     - with a **simplified** syntax,
     - in the _style_ of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
