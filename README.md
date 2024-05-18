@@ -259,9 +259,9 @@ Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
 - With Cone version of every standard class/concept (i.e. uppercase class names and camelCase function and variable names)
     - e.g. `cone::String : protected std::string`
 - „**Alias**“ for 
-    - member variables
-       `using x = data[0]`  
-       `using y = data[1]`  
+    - member variables  
+      `using x = data[0]`  
+      `using y = data[1]`  
         - ~~or `alias x = data[0]`?~~
         - Not quite possible in C++.
             - With …  
