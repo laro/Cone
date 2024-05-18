@@ -25,6 +25,7 @@ C++ with simplified syntax
                 - RROD (Resource Release on Object Destruction)
             - `SharedPtr<T>` etc.
 
+
 - **Compatible to C++**, C and maybe other languages of this "language family"
     - as with
         - Java: Kotlin, Scala, Groovy, Clojure, Fantom, Ceylon, Jython, JRuby …
@@ -43,6 +44,7 @@ C++ with simplified syntax
             - C++ standard headers in certain directories 
         - can be set in IDE
             - for each file individually 
+
 
 ## Style
 - All types and standard classes in upper CamelCase
@@ -79,6 +81,7 @@ C++ with simplified syntax
 
 - Namespaces fully lowercase 
     - Standard namespace `cone`~~, `c1` ~~
+
 
 ## Arithmetic Types
 - `Bool`
@@ -121,6 +124,7 @@ C++ with simplified syntax
         - But where do algorithms stop whose results cannot be represented precisely?
             - For example: `1.0 / 3.0`
 
+
 ## Signed Size
 `Int` (i.e. signed) as type for `*.size()`
 - Because mixed integer arithmetic ("signed - unsigned") and "unsigned - unsigned" is difficult to handle.
@@ -153,6 +157,7 @@ C++ with simplified syntax
         - ~~`Size` - `Size` -> `SSize`~~
             - ~~Problem: `-` results in `SSize`, but `+` results in `Size`?!~~
         - ~~The conversion of a negative number into `Size` leads to an error instead of delivering a HUGE size ~~
+
 
 ## String, Char & CodePoint
 - `cone::String` with UTF-8 support
@@ -200,7 +205,7 @@ C++ with simplified syntax
     - Sorting
 - `StringView`
     - to iterate over all grapheme clusters (i.e. may consist of multiple code points) of a string
-        - `for grapheme in "abc 🥸👮🏻"`
+        - `for graphemeCluster in "abc 🥸👮🏻"`
             - "a", "b", "c", " ", "🥸", "👮🏻"
             - "\x61", "\x62", "\x63", "\x20", "\xf0\x9f\xa5\xb8", "\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb"
     - A bit slow, as it has to find grapheme cluster boundaries.
@@ -208,17 +213,17 @@ C++ with simplified syntax
 - `CodePoint` == `UInt32`
     - to iterate over all code points of a string,
             - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
-            - 0x00000061, 0x00000062, 0x00000063, 0x00000020, 0x0001F978, 0x0001F46E, 0x0001F3FB 
+            - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
     - Independent of the encoding (so, the same for UTF-8/16/32),
         - called "auto decoding" in D.
     - A bit faster, but still slow, as it has to find code point boundaries in UTF-8/16 strings.
-    - Fast with UTF-32, **but** even with UTF-32 not all graphemes/characters fit into a single code point,
+    - Fast with UTF-32, **but** even with UTF-32 not all grapheme clusters fit into a single code point,
         - so not:
             - emoji with modifier characters like skin tone or variation selector,
             - diacritical characters (äöü…, depending on the normal form chosen),
             - surely some more …
         - Often slower than UTF-8, due to its size (cache, memory bandwidth)
-- `Char` == `Char8` == `UInt8`
+- `Char` == `Char8`
     - to iterate over all code units (bytes/characters) of an UTF-8 string,
         - `for ch in "abc 🥸👮🏻".asArray()`
         - `for ch in "abc 🥸👮🏻"utf8.asArray()`
@@ -238,22 +243,24 @@ C++ with simplified syntax
             - Exception thrown, if string contains non-Latin1 characters.
             - 0xe4, 0x62, 0x63
             - ‚ä‘, ‚b‘, ‚c‘
-- `Char16` == `UInt16`
+- `Char16`
     - to iterate over strings encoded as UTF-16 with `.asArray()`
         - `for ch16 in "abc 🥸👮🏻"utf16.asArray()`
         - `for ch16 in UTF16String("abc 🥸👮🏻").asArray()`
             - 0x0061, 0x0062, 0x0063, 0x0020, &nbsp; 0xD83E, 0xDD78, &nbsp; 0xD83D, 0xDC6E, 0xD83C, 0xDFFB
-- `Char32` == `UInt32`
+- `Char32`
     - to iterate over strings encoded as UTF-32 with ".asArray()"
         - `for ch32 in "abc 🥸👮🏻"utf32.asArray()`
         - `for ch32 in UTF32String("abc 🥸👮🏻").asArray()`
             - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E , 0x0001F3FB
-- `Char8` == `UInt8`, `Char16` == `UInt16`, `Char32` == `UInt32`
-    - (considered as _different_ types for parameter overloading)
+- `Char8`, `Char16`, `Char32`
+    - are like `UInt8`, `UInt16`, `UInt32`,
+    - but considered as _different_ types for parameter overloading.
 - So no ~~`WideChar`~~
     - ~~Or is it useful for portable code (Linux `UInt32` <-> Windows `UInt16`)?~~
         - ~~You may use `wchar_t` then.~~
-     
+
+
 ## Namespace `cone`
 Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
 - With Cone version of every standard class/concept (i.e. uppercase class names and camelCase function and variable names)
@@ -275,6 +282,7 @@ Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
         - ~~Or is perfect forwarding enough?~~
             - ~~https://stackoverflow.com/a/9864472~~
             - This would not work for virtual functions
+
 
 ## Const Reference as Default Type
 Const reference/value as default type for function call arguments and for "for-in" (AKA "for-each", "foreach").
@@ -332,6 +340,7 @@ Const reference/value as default type for function call arguments and for "for-i
             - `str` is `String`
     - `for i in 1..<10 { … }`
         - `i` is `const Int`
+
 
 ## Better Readable Keywords
 C++ has a "tradition" of complicated keywords or reuse of keywords, simply as to avoid compatibility problems with old code, which may have used one of the new keywords as name (of a variable, function, class, or namespace).
