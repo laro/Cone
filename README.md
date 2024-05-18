@@ -303,39 +303,37 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
     - Examples:
         - `concat(String first, String second)`
             - instead of `concat(const String& first, const String& second)`
-        - ```
-          String[] stringArray = ["a", "b", "c"] 
-          for str in stringArray  { … }
-          ```
+        - `String[] stringArray = ["a", "b", "c"]   
+          for str in stringArray  { … }`
             - `str` is `const String&`
             - If you want to have it differently:
                 - „`for mutable str in stringArray  { … }“`
                     - „`str`“ is „`String&`“
-                - „for value str in stringArray  { … }“
-                    - „str“ is „const String“
-                - „for mutable value str in stringArray { … }“
-                    - „str“ is „String“
-        - „for str in ["a", "b", "c"]  { … }“
-            - „str" is „const StringView“
-        - „for i in [1, 2, 3] { … }“
-            - „i“ is „const Int“
+                - „`for value str in stringArray  { … }“`
+                    - „`str`“ is „`const String`“
+                - „`for mutable value str in stringArray { … }“`
+                    - „`str`“ is „`String`“
+        - „`for str in ["a", "b", "c"]  { … }`“
+            - „`str`" is „`const StringView`“
+        - „`for i in [1, 2, 3] { … }“`
+            - „`i`“ is „`const Int`“
             - If you want to have it differently:
-                - „for mutable i in [1, 2, 3] { … }“
-                    - „i“ is „Int“
-                - „for reference i in [1, 2, 3] { … }“
-                    - „i“ is „const Int&“
-                - „for mutable reference i in [1, 2, 3] { … }“
-                    - „i“ is „Int&“
+                - „`for mutable i in [1, 2, 3] { … }`“
+                    - „`i`“ is „`Int`“
+                - „`for reference i in [1, 2, 3] { … }`“
+                    - „`i`“ is „`const Int&“`
+                - „`for mutable reference i in [1, 2, 3] { … `}“
+                    - „`i`“ is „`Int&“`
         - If you want even the basic type to be different:
-            - „for Double d in [1, 2, 3]  { … }“
-                - „d“ is „const Double“
-            - „for String str in ["a", "b", "c"]  { … }“
-                - „str“ is „const String&“
-            - „for mutable String str in ["a", "b", "c"]  { … }“
-                - „str“ is „String&“
-            - „for value String str in ["a", "b", "c"]  { … }“
-                - „str“ is „const String“
-            - „for mutable value String str in ["a", "b", "c"]  { … }“
-                - „str“ is „String“
-        - „for i in 1..<10 { … }“
+            - „`for Double d in [1, 2, 3]  { … }“`
+                - „`d`“ is „`const Double`“
+            - „`for String str in ["a", "b", "c"]  { … }“`
+                - „`str`“ is „`const String&“`
+            - „`for mutable String str in ["a", "b", "c"]  { … }“`
+                - „`str`“ is „`String&“`
+            - „`for value String str in ["a", "b", "c"]  { … }`“
+                - „`str`“ is „`const String`“
+            - „`for mutable value String str in ["a", "b", "c"]  { … }`“
+                - „`str`“ is „`String`“
+        - `for i in 1..<10 { … }`
             - `i` is `const Int`
