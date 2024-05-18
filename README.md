@@ -83,7 +83,7 @@ C++ with simplified syntax
 
 ## Arithmetic Types
 - Bool
-    - not ~~bool~~ nor ~~Boolean~
+    - not ~~bool~~ nor ~~Boolean~~
 - Int, UInt
     - Int == Int64
         - Int == Int32 on 32 bit systems only (i.e. old/small platforms)
@@ -121,3 +121,36 @@ C++ with simplified syntax
         - see [GMP](https://gmplib.org)
         - But where do algorithms stop whose results cannot be represented precisely?
             - For example: „1.0 / 3.0“
+
+## Signed Size
+Int (i.e. signed) as type for *.size()
+- Because mixed integer arithmetic („signed - unsigned“) and „unsigned - unsigned“ is difficult to handle.
+    - In C/C++ „anUInt - 1 >= 0“ is _always_ true (even if anUInt is 0)
+- When working with sizes, calculating the difference is common; Then you are limited to PtrDiff (i.e. signed integer) anyway.
+- Who needs more than 2GB of data in an „array“, should please use a 64 bit platform.
+- For bounds checking, the two comparisons „x >= 0“ and  „x < width“ may very well be reduced to a single „UInt(x) < width“ _by the compiler_ in an optimization step. 
+- Then types Size and SSize/PtrDiff are not necessary anymore, so two types less.
+    - We simply use Int instead. Or UInt rate cases.
+- Restricted rules for mixed integer arithmetic:
+    - Unsigned +-*/ Signed is an error
+        - you have to cast
+        - Int (i.e. signed) is almost always used anyways
+    - Error with „if (anUInt < 0)“
+        - if the literal on the right is <= 0
+    - Error with „if (anUInt < anInt)“
+        - you have to cast
+- Not:
+    - ~~Size AKA UInt as type for *.size() (i.e. still unsigned)~~
+        - ~~Size reads IMHO better than UInt~~
+            - ~~Size would not really be necessary~~
+        - ~~New rules for mixed integer arithmetic:~~
+            - ~~Unsigned +-*/ Signed -> Signed.~~
+                - ~~Signed is therefore considered the "larger" type compared to unsigned~~
+                - ~~„1“ is Int (signed)~~
+                    - ~~„1u“ is UInt (unsigned)~~
+                - ~~Therefore „if (anUInt - 1 >= 0)“ is a useful expression („1“ is signed)~~
+                - ~~But also „anUInt + 1 == anInt“~~
+    - ~~Or~~
+        - ~~Size - Size -> SSize~~
+            - ~~Problem: „-“ results in SSize, but „+“ results in Size?!~~
+        - ~~The conversion of a negative number into Size lead to an error instead of delivering a HUGE size ~~
