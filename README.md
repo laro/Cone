@@ -9,7 +9,7 @@ C++ without semicolons
     - in the style of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter „expression“.
-    - -May I call this "modern"?-
+    - ~~May I call this "modern"?~~
     - C++ Successor Language
         - like CppFront/Cpp2, Carbon or Circle
         - Similar to
