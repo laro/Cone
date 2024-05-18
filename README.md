@@ -349,9 +349,9 @@ C++ has a „tradition“ of complicated keywords or reuse of keywords, simply a
         - as in Carbon, Python
         - Used for both
             - boolean operation
-                - `anBool **and** anotherBool` -> `Bool`
+                - `anBool`**`and`**`anotherBool` -> `Bool`
             - bitwise operation
-                - `anInt **and** anotherInt` -> `Int`
+                - `anInt`**`and`**`anotherInt` -> `Int`
 - When translating C++ code to Cone then change conflicting names, e.g.
     - `int var` -> `Int __variable_var`
     - `class func` -> `class __class_func`
