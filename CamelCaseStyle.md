@@ -1,0 +1,28 @@
+- All types and standard classes in upper CamelCase
+    - Style similar to Kotlin, Swift
+    - Cone standard library („cone::“ instead of „std::“)
+        - „std::string“ -> „cone::String“
+        - „vector“ -> „Vector“
+        - „map“ -> „Map“
+            - „Dictionary“ as typedef with deprecation warning
+        - „forward_list“ -> „ForwardList“
+        - „unordered_map“ -> „UnorderedMap“
+        - „value_type“ -> „ValueType“
+        - Maybe some exceptions/variations:
+            - „stringstream“ -> „Stringstream“ or „StringStream“?
+                - „Textstream“ or TextStream“, „Bytestream“ or „ByteStream“, …
+            - „multimap" -> „Multimap“ or „MultiMap“?
+    - Arithmetic types
+        - Bool
+        - Int == Int32 or 64
+            - Int8, Int16, Int32, Int64, maybe Int128
+        - UInt == UInt32 or 64
+            - UInt8, UInt16, UInt32, UInt64, maybe UInt128
+        - BigInt (Arbitrary Precision Integer)
+        - Float
+            - Float16, Float32, Float64 (Half, Single, Double Precision Floating Point)
+                - maybe Float128, Float256
+            - BFloat16 (Brain Floating Point)
+            - BigFloat for Arbitrary Precision Float
+        - Byte == UInt8
+        - Char == UInt8, CodePoint == UInt32
