@@ -261,14 +261,14 @@ Standard namespace is „cone“~~, „c1“~~ (instead of "std")
     - e.g. „cone::String : protected std::string“
 - „**Alias**“ for 
     - member variables
-        `using x = data[0]`  
-         `using y = data[1]`
+       `using x = data[0]`  
+       `using y = data[1]`  
         - ~~or `alias x = data[0]`?~~
         - Not quite possible in C++.
-            - With …
-                `Float& imaginary = im`
-                `T& x = data[0]`
-            - … unfortunately memory is created for the reference (the pointer).
+            - With …  
+              `Float& imaginary = im`  
+              `T& x = data[0]`  
+              … unfortunately memory is created for the reference (the pointer).
             - And this indeed is necessary here, because the reference could be assigned differently in the constructor,
                 - so it is not possible to optimieren it away.
     - member functions
