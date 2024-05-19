@@ -413,7 +413,10 @@ As in Python, Kotlin, Swift, JavaScript, Julia
     - ~~Variant E:~~
         - ~~`func*(Int, Int)->Int pointerToFunctionOfIntAndIntToInt`~~
         - ~~`(func*(Int, Int)->Int)[] arrayOfPointersToFunctionOfIntAndIntToInt`~~
-
+- Extension methods
+    - Also possible for arithmetic types (like `Int i; i.toString()`)
+        - `func Int::toString() -> String { … }`  // as in Kotlin
+            - ~~or `func toString (Int this) -> String` ~~
 
 ## Variable Declaration
 Variable declaration still simply as `Int i`, as in C/C++.
