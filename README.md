@@ -92,7 +92,7 @@ C++ with simplified syntax
         - `Int` == `Int32` on `32` bit systems only (i.e. old/small platforms)
             - therefore it is _not_ necessary to have ~~`Size` or `SSize`~~
     - `Int8`, `Int16`, `Int32`, `Int64`, maybe `Int128`, `Int256`
-        - like `int32_t` or `qint32`, but no prefix "q" nor postfix "_t,) and in CamelCase 
+        - like `int32_t` or `qint32`, but no prefix "q" nor postfix "_t", and in CamelCase 
     - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`, `UInt256`
         - e.g. `UInt256` for SHA256
 - `Byte` == `UInt8` (Alias, i.e. the same type for parameter overloading)
