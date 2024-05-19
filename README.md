@@ -615,9 +615,9 @@ Variable declaration still simply as `Int i`, as in C/C++.
       ```
     - Removes indentation as in the last line
     - Removes first newline
-    - Also good for RegEx
+    - As in Swift, Julia
+    - Also as single line string literal with very few restrictions, good for RegEx
         - `"""(.* )whatever(.*)"""`
-    - as in Swift, Julia
 - Interpolated Strings
     - `$“M[{i},{j}] = {M[i, j]}"`
         - like in C#
@@ -633,8 +633,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
             - Workaround: Use `"Text\0"ascii` instead
     - All these available for multiline string literals and interpolated strings, too.
         - Any reason, not to? 
-- `[1, 2, 3]` is an array (here an `Int[]`)
-    - all elements have the same type
+- `[1, 2, 3]` is an array (here an `Int[]`),
+    - all elements have the same type.
 - `{1, "Text", 3.0}` is an initialization list
     - e.g. for `Tuple`
 - ```
@@ -648,7 +648,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - is a `Map<String,String>`
 - Range literals `1..10` and `1..<10`
     - as in Kotlin
-    - Swift would be `1...10`
-        - I like `...` to be reserved for ellipsis in human language like comments
+    - ~~Swift would be `1...10`~~
+        - I like `...` to be reserved for ellipsis in human language like comments.
 - Rules for user defined literals
     - as in C++.
