@@ -396,6 +396,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
 - `func function2(`**`Int x, y`**`) -> Float` // x _and_ y are Int
 - Lambdas
     - `[](Int i) -> Float { i * 3.14 }`
+        - as in C++
 - Function pointers
     - Difficult to maintain consistency between declarations of functions, function pointers, functors and lambdas.
     - Variant A:
