@@ -518,7 +518,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 ## Comments
 - One line comments
     - ```
-      // if (a < b) {
+      // if a < b {
       //   TODO
       // }
       ```
