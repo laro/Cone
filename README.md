@@ -139,9 +139,9 @@ C++ with simplified syntax
     - `Unsigned +-*/ Signed` is an error
         - you have to cast
         - `Int` (i.e. signed) is almost always used anyways
-    - Error with `if (anUInt < 0)`
+    - Error with `if anUInt < 0`
         - if the literal on the right is `<= 0`
-    - Error with `if (anUInt < anInt)`
+    - Error with `if anUInt < anInt`
         - you have to cast
 - Not:
     - ~~`Size` AKA `UInt` as type for `*.size()` (i.e. still unsigned)~~
@@ -152,7 +152,7 @@ C++ with simplified syntax
                 - ~~Signed is therefore considered the "larger" type compared to unsigned~~
                 - ~~`1` is `Int` (signed)~~
                     - ~~`1u` is `UInt` (unsigned)~~
-                - ~~Therefore `if (anUInt - 1 >= 0)` is a useful expression (`1` is signed)~~
+                - ~~Therefore `if anUInt - 1 >= 0` is a useful expression (`1` is signed)~~
                 - ~~But also `anUInt + 1 == anInt`~~
     - ~~Or~~
         - ~~`Size` - `Size` -> `SSize`~~
@@ -485,13 +485,13 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - for templates, references and pointers.
     - Multiple inheritance is problematic here:
         - In Cone/C++, an object can be an instance of several base classes at once, whereby the pointer (typically) changes during casting.
-        - What if you still want/need to access the functions for a `Type obj` after `if (obj is ParentA)`?
+        - What if you still want/need to access the functions for a `Type obj` after `if obj is ParentA`?
             - Workaround: Cast back with `Type(obj).functionOfA()`
-        - ~~Therefore maybe better: `if (obj is String str) ...`~~
+        - ~~Therefore maybe better: `if obj is String str ...`~~
             - ~~as in C#~~
     - ```
       func getStringLength(Type obj) -> Int {
-           if (obj is String) {
+           if obj is String {
                // "obj" is automatically cast to "String" in this branch
                return obj.length
           }
@@ -501,7 +501,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
       ```
     - ```
       func getStringLength(Type obj) -> Int {
-          if (obj not is String)
+          if obj not is String
               return 0
           // "obj" is automatically cast to "String" in this branch
           return obj.length
@@ -510,7 +510,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - ```
       func getStringLength(Type obj) -> Int {
            // "obj" is automatically cast to "String" on the right-hand side of "and"
-          if (obj is String  and  obj.length > 0) {
+          if obj is String  and  obj.length > 0 {
               return obj.length
           }
           return 0
