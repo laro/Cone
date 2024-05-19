@@ -592,7 +592,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - `1.0` is a floating point literal of arbitrary precision
     - Can be converted to any float type into which it fits exactly
         - otherwise explicit cast necessary: `Float16(3.1415926)`
-    - Difficult: Constexpr constructor that accepts an arbitrary precision float literal and can store that in ROM
+    - Difficult: Constexpr constructor that accepts an arbitrary precision float literal  and can store that in ROM
         - Store the mantissa as arbitrary precision integer (i.e. array of Int), plus the exponent as as arbitrary precision integer (i.e. array of Int, most always only a single Int)
     - `1.0` is interpreted as `Float`
         - for type inferring, parameter overloading and template matching.
