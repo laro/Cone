@@ -213,8 +213,8 @@ C++ with simplified syntax
     - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-cluster-based iteration. But when you do, this probably is the correct way. 
 - `UInt32`
     - to iterate over all code points of a string,
-            - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
-            - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
+        - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
+        - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
     - Independent of the encoding (so, the same for UTF-8/16/32),
         - called "auto decoding" in D.
     - ~~`CodePoint` == `UInt32`~~
