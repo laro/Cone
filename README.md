@@ -47,7 +47,7 @@ C++ with simplified syntax
 
 
 ## Style
-- All types and standard classes in upper CamelCase
+- All types and classes in upper CamelCase (even the standard/STL classes).
     - Style similar to Kotlin, Swift
     - Cone standard library (`cone::` instead of `std::`)
         - `std::string` -> `cone::String`
