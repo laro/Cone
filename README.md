@@ -358,7 +358,7 @@ C++ has a "tradition" of complicated names, keywords or reuse of keywords, simpl
     - `yield` instead of `co_yield`
     - `return` instead of `co_return`
     - `and`, `or`, `xor`, `not` instead of `&&`, `||`, `^`, `!`
-        - as in Carbon, Python
+        - as in Python, Carbon
         - Used for both
             - boolean operation
                 - `anBool`**`and`**`anotherBool` -> `Bool`
