@@ -562,13 +562,13 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - `UInt8  g = 256`  // Error because 256 does not fit into Int8
         - `UInt8  h = -1`     // Error because -1 does not fit into UInt8
         - `Int16 i = 1`         // Works
-        - Int32 j = 1         // Works
-        - `Int64 k = 1        // Works` 
-        - `Int l = a  // Works because Int8 fits into Int32`
-        - `UInt m = l  // Error because Int does not always fit into UInt`
-            - `UInt m = UInt(l)   // Works`
-        - `Int n = m  // Error because UInt does not always fit into Int`
-            -` Int n = Int(m)   // Works`
+        - `Int32 j = 1`         // Works
+        - `Int64 k = 1`        // Works`
+        - `Int l = a`  // Works because Int8 fits into Int32
+        - `UInt m = l`  // Error because Int does not always fit into UInt
+            - `UInt m = UInt(l)`   // Works
+        - `Int n = m`  // Error because UInt does not always fit into Int
+            -` Int n = Int(m)`   // Works
     - `123` is interpreted as `Int`
         - for type inferring, parameter overloading and template matching.
     - Difficult: Constexpr constructor that accepts an arbitrary precision integer literal  and can store that in ROM
