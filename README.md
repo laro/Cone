@@ -560,7 +560,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - `Int8 e = -129` // _Error_ because `-129` does _not_ fit into `Int8`
         - `UInt8 f = 255`  // Works because `255` fits into `UInt8`
         - `UInt8 g = 256`  // _Error_ because `256` does _not_ fit into `Int8`
-        - `UInt8 h = -1`   // _Error_ because `-1 does _not_ fit into `UInt8`
+        - `UInt8 h = -1`   // _Error_ because `-1` does _not_ fit into `UInt8`
         - `Int16 i = 1`    // Works
         - `Int32 j = 1`    // Works
         - `Int64 k = 1`    // Works`
