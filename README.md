@@ -414,3 +414,28 @@ As in Python, Kotlin, Swift, JavaScript, Julia
     - ~~Variant E:~~
         - ~~`func*(Int, Int)->Int pointerToFunctionOfIntAndIntToInt`~~
         - ~~`(func*(Int, Int)->Int)[] arrayOfPointersToFunctionOfIntAndIntToInt`~~
+
+
+## Variable Declaration
+Variable declaration still simply as „Int i“, as in C/C++.
+- Or is that still not clear enough?
+    - Could be problematic in connection with omitting the trailing semicolons,
+    - Swift, Kotlin and Circle always start variable declarations with "var“.
+- Not
+    - ~~„var Int i“~~
+    - ~~„var i : Int“~~
+- `var i = 3` only for type inference
+    - ~~Maybe possible to simply write „i = 3“?~~
+    - ~~Maybe „i := 3“?~~
+- Examples:
+    - `Int anInt`
+    - `Int[] arrayOfInt`
+    - `Int[3] arrayOfThreeInt`
+    - `Int[3]* pointerToArrayOfThreeInt`
+    - `Int[3][]* pointerToArrayOfArrayOfThreeInt`
+    - `String*[] arrayOfPointersToString`
+    - **`Float* i, j`   // i and j are pointers**
+- Not allowed / syntax error is:
+    - `Float* i, &j`  // Syntax error, is not allowed
+    - `Float *i`       // Syntax error, is not allowed
+    - `Float*i`        // Syntax error, is not allowed
