@@ -112,9 +112,9 @@ C++ with simplified syntax
     - `BFloat16` (Brain Floating Point)
     - Mixed arithmetic:
         - `1 * aFloat` is possible
-            - Warning, if the Int literal cannot be reproduced exactly as `Float32`/`64`
+            - Warning, if the integer literal cannot be reproduced exactly as `Float32`/`64`
         - `anInt * aFloat` is possible
-            - Warning that the Int variable may not be reproduced exactly as `Float32`/`64`, i.e. with
+            - Warning that the integer variable may not be reproduced exactly as `Float32`/`64`, i.e. with
                 - `aFloat32 * anInt32/64    // Warning`
                 - `aFloat32 * anInt8/16     // No warning`
                 - `aFloat64 * anInt64       // Warning`
