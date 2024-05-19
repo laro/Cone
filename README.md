@@ -628,9 +628,9 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - Syntax error, if one of the characters is not ASCII
     - `"Text"latin1`
         - Syntax error, if one of the characters is not Latin-1
-    - `"Text"sz` is a zero terminated string (as used in C)
-        - Problem: How to combine e.g. `"..."ascii` and `"..."sz`?
-            - Workaround: Use `"Text\0"ascii`
+    - ~~`"Text"sz` is a zero terminated string (as used in C)~~
+        - ~~Problem: How to combine e.g. `"..."ascii` and `"..."sz`?~~
+            - Workaround: Use `"Text\0"ascii` instead
     - All these available for multiline string literals and interpolated strings, too.
         - Any reason, not to? 
 - `[1, 2, 3]` is an array (here an `Int[]`)
