@@ -620,6 +620,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - as in Swift, Julia
 - Interpolated Strings
     - `$“M[{i},{j}] = {M[i, j]}"`
+        - like in C#
+        - Any reason to use/prefer any other syntax?
 - Alternative string literals
     - „Text“utf8 (is the default anyway), „Text“utf16, „Text“utf32
     - „Text“ascii
