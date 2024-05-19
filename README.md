@@ -74,7 +74,7 @@ C++ with simplified syntax
             - `BFloat16` (Brain Floating Point)
             - `BigFloat` for Arbitrary Precision Float
         - `Byte` == `UInt8`
-        - `Char` == `UInt8`, `CodePoint` == `UInt32`
+        - `Char` == `UInt8`~~, `CodePoint` == `UInt32`~~
 
 - Functions in lower camelCase
     - Roughly in the style of Qt, Objective-C/C++, Java, JavaScript, TypeScript, Kotlin, Swift
@@ -210,12 +210,14 @@ C++ with simplified syntax
             - "\x61", "\x62", "\x63", "\x20", "\xf0\x9f\xa5\xb8", "\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb"
     - A bit slow, as it has to find grapheme cluster boundaries.
     - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-cluster-based iteration. But when you do, this probably is the correct way. 
-- `CodePoint` == `UInt32`
+- `UInt32`
     - to iterate over all code points of a string,
             - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
             - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
     - Independent of the encoding (so, the same for UTF-8/16/32),
         - called "auto decoding" in D.
+    - ~~`CodePoint` == `UInt32`~~
+        - ~~No distinct type for code points necessary, or would it be useful?~~
     - A bit faster, but still slow, as it has to find code point boundaries in UTF-8/16 strings.
     - Fast with UTF-32, **but** even with UTF-32 not all grapheme clusters fit into a single code point,
         - so not:
