@@ -551,47 +551,47 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - or **True**, **False**?
         - As in Python,
         - as they are constants.  
-- 123 is an integer literal of arbitrary precision
+- `123` is an integer literal of arbitrary precision
     - Can be converted to any integer type it fits into (signed and unsigned)
-        - Int8  a = 1        // Works because 1 fits into Int8
-        - Int8  b = 127    // Works because 127 fits into Int8
-        - Int8  c = 128    // Error because 128 does not fit into Int8
-        - Int8  d = -128  // Works because -128 fits into Int8
-        - Int8  e = -129  // Error because -129 does not fit into Int8
-        - UInt8  f = 255  // Works because 255 fits into UInt8
-        - UInt8  g = 256  // Error because 256 does not fit into Int8
-        - UInt8  h = -1     // Error because -1 does not fit into UInt8
-        - Int16 i = 1         // Works
+        - `Int8  a = 1`        // Works because 1 fits into Int8
+        - `Int8  b = 127`    // Works because 127 fits into Int8
+        - `Int8  c = 128`    // Error because 128 does not fit into Int8
+        - `Int8  d = -128`  // Works because -128 fits into Int8
+        - `Int8  e = -129`  // Error because -129 does not fit into Int8
+        - `UInt8  f = 255`  // Works because 255 fits into UInt8
+        - `UInt8  g = 256`  // Error because 256 does not fit into Int8
+        - `UInt8  h = -1`     // Error because -1 does not fit into UInt8
+        - `Int16 i = 1`         // Works
         - Int32 j = 1         // Works
-        - Int64 k = 1        // Works 
-        - Int l = a  // Works because Int8 fits into Int32
-        - UInt m = l  // Error because Int does not always fit into UInt
-            - UInt m = UInt(l)   // Works
-        - Int n = m  // Error because UInt does not always fit into Int
-            - Int n = Int(m)   // Works
-    - 123 i interpreted as Int
+        - `Int64 k = 1        // Works` 
+        - `Int l = a  // Works because Int8 fits into Int32`
+        - `UInt m = l  // Error because Int does not always fit into UInt`
+            - `UInt m = UInt(l)   // Works`
+        - `Int n = m  // Error because UInt does not always fit into Int`
+            -` Int n = Int(m)   // Works`
+    - `123` is interpreted as `Int`
         - for type inferring, parameter overloading and template matching.
-    - Difficult: Constexpr constructor that accepts an arbitrary precision integer literal and can store that in ROM
-        - Store as array of Int
-    - 123u is UInt
-    - -123 is always Int (signed)
-- 0xffffffff is UInt in hexadecimal
-- 0b1011 is UInt in binary
-- 0o123 is UInt in octal
+    - Difficult: Constexpr constructor that accepts an arbitrary precision integer literal  and can store that in ROM
+        - Store as array of `Int`
+    - `123u` is `UInt`
+    - `-123` is always `Int` (signed)
+- `0xffffffff` is `UInt` in hexadecimal
+- `0b1011` is `UInt` in binary
+- `0o123` is `UInt` in octal
     - as in Python
-    - not 0123, as that is confusing/unexpected, even if it is C++ standard
-- Bool vs. Int
-    - Int a = True      // Error,
-        - because Bool is not an Int
-        - because a Bool should not be accidentally interpreted as an Int
-        - cast if necessary: „Int a = Int(True)“
+    - not `0123`, as that is confusing/unexpected, even if it is C++ standard
+- `Bool` vs. `Int`
+    - ~~`Int a = True`~~      // Error,
+        - because `Bool` is _not_ an `Int`
+        - because a `Bool` should not be accidentally interpreted as an `Int`
+        - cast if necessary: `Int a = Int(True)`
     - Bool a = 1      // geht nicht,
         - because Int is not a Bool
         - because an Int should not be accidentally interpreted as a Bool
-        - cast if necessary: „Bool a = Bool(1)“ 
+        - cast if necessary: `Bool a = Bool(1)` 
 - 1.0 is a floating point literal of arbitrary precision
     - Can be converted to any float type into which it fits exactly
-        - otherwise explicit cast necessary: „Float16(3.1415926)“
+        - otherwise explicit cast necessary: `Float16(3.1415926)`
     - Difficult: Constexpr constructor that accepts an arbitrary precision float literal and can store that in ROM
         - Store the mantissa as arbitrary precision integer (i.e. array of Int), plus the exponent as as arbitrary precision integer (i.e. array of Int, most always only a single Int)
     - 1.0 is interpreted as Float
@@ -603,18 +603,18 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - in C++/Cone tradition, but length would also work, of course
     - No Null termination
         - If necessary
-            - use „Text\0“  or
-            - convert using „StringZ(…)“.
+            - use "Text\0“  or
+            - convert using `StringZ(…)`.
     - Data is typically stored in read-only data segments or ROM.
 - Multiline String Literal
     - """ First line Second line """
     - Removes indentation as in the last line
     - Removes first newline
     - Also good for RegEx
-        - """(.* )whatever(.*)“““
+        - """(.* )whatever(.*)"""
     - as in Swift, Julia
 - Interpolated Strings
-    - $“M[{i},{j}] = {M[i, j]}“
+    - $“M[{i},{j}] = {M[i, j]}"
 - Alternative string literals
     - „Text“utf8 (is the default anyway), „Text“utf16, „Text“utf32
     - „Text“ascii
@@ -638,10 +638,10 @@ Variable declaration still simply as `Int i`, as in C/C++.
        "Key4": "Value4"
    }
   ```
-    - is a Map<String,String>
-- Range literals „1..10“ and „1..<10“
+    - is a `Map<String,String>`
+- Range literals `1..10` and `1..<10`
     - as in Kotlin
-    - Swift would be „1…10“
-        - I like „…“ to be reserved for ellipsis in human language like comments
+    - Swift would be `1…10`
+        - I like `…` to be reserved for ellipsis in human language like comments
 - Rules for User defined literals
         - as in C++.
