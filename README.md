@@ -209,7 +209,7 @@ C++ with simplified syntax
             - "a", "b", "c", " ", "🥸", "👮🏻"
             - "\x61", "\x62", "\x63", "\x20", "\xf0\x9f\xa5\xb8", "\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb"
     - A bit slow, as it has to find grapheme cluster boundaries.
-    - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-based iteration. But when you do, this probably is the correct way. 
+    - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-cluster-based iteration. But when you do, this probably is the correct way. 
 - `CodePoint` == `UInt32`
     - to iterate over all code points of a string,
             - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
