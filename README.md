@@ -346,7 +346,7 @@ Const reference/value as default type for function call arguments and for "for-i
 
 
 ## Better Readable Keywords
-C++ has a "tradition" of complicated keywords or reuse of keywords, simply as to avoid compatibility problems with old code, which may have used one of the new keywords as name (of a variable, function, class, or namespace).
+C++ has a "tradition" of complicated names, keywords or reuse of keywords, simply as to avoid compatibility problems with old code, which may have used one of the new keywords as name (of a variable, function, class, or namespace).
 - Cone has
     - `var` instead of `auto`
     - `func` instead of `auto`
@@ -364,6 +364,8 @@ C++ has a "tradition" of complicated keywords or reuse of keywords, simply as to
                 - `anBool`**`and`**`anotherBool` -> `Bool`
             - bitwise operation
                 - `anInt`**`and`**`anotherInt` -> `Int`
+- `Int32` instead of `int32_t` or `qint32`,
+  - so no prefix "q" nor postfix "_t".
 - When translating C++ code to Cone then change conflicting names, e.g.
     - `int var` -> `Int __variable_var`
     - `class func` -> `class __class_func`
