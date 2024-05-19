@@ -585,25 +585,25 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - because `Bool` is _not_ an `Int`
         - because a `Bool` should not be accidentally interpreted as an `Int`
         - cast if necessary: `Int a = Int(True)`
-    - Bool a = 1      // geht nicht,
-        - because Int is not a Bool
-        - because an Int should not be accidentally interpreted as a Bool
+    - `Bool a = 1`      // Error,
+        - because `Int` is not a `Bool`
+        - because an `Int` should not be accidentally interpreted as a `Bool`
         - cast if necessary: `Bool a = Bool(1)` 
-- 1.0 is a floating point literal of arbitrary precision
+- `1.0` is a floating point literal of arbitrary precision
     - Can be converted to any float type into which it fits exactly
         - otherwise explicit cast necessary: `Float16(3.1415926)`
     - Difficult: Constexpr constructor that accepts an arbitrary precision float literal and can store that in ROM
         - Store the mantissa as arbitrary precision integer (i.e. array of Int), plus the exponent as as arbitrary precision integer (i.e. array of Int, most always only a single Int)
-    - 1.0 is interpreted as Float
+    - `1.0` is interpreted as `Float`
         - for type inferring, parameter overloading and template matching.
-    - 1.0f is always Float32
-    - 1.0d is always Float64 
-- "Text" is a StringView
+    - `1.0f` is always `Float32`
+    - `1.0d` is always `Float64` 
+- `"Text"` is a `StringView`
     - Pointer to first character and pointer after the last character
         - in C++/Cone tradition, but length would also work, of course
-    - No Null termination
+    - No null termination
         - If necessary
-            - use "Text\0“  or
+            - use `"Text\0“`  or
             - convert using `StringZ(…)`.
     - Data is typically stored in read-only data segments or ROM.
 - Multiline String Literal
@@ -611,10 +611,10 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - Removes indentation as in the last line
     - Removes first newline
     - Also good for RegEx
-        - """(.* )whatever(.*)"""
+        - `"""(.* )whatever(.*)"""`
     - as in Swift, Julia
 - Interpolated Strings
-    - $“M[{i},{j}] = {M[i, j]}"
+    - `$“M[{i},{j}] = {M[i, j]}"`
 - Alternative string literals
     - „Text“utf8 (is the default anyway), „Text“utf16, „Text“utf32
     - „Text“ascii
