@@ -38,7 +38,7 @@ C++ with simplified syntax
         - the file extension
             - C++: `*.cpp` `*.hpp` `*.cxx` `*.hxx` `*.h`
             - C: `*.c` `*.h`
-                - `*.h` is of course a problem, but can probably best be solved using path based rules.
+                - `*.h` is of course a problem, as the header could be C or C++ code, but can probably best be solved using path based rules.
             - Cone: `*.cone` `*.hone` `*.c1` `*.h1` `*.co` `*.ho`
         - path based rules
             - C++ standard headers in certain directories 
