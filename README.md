@@ -468,11 +468,25 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - ```
       func getStringLength(Type obj) -> Int {
            if (obj is String) {
-               // `obj` is automatically cast to „String“ in this branch
+               // "obj" is automatically cast to "String" in this branch
                return obj.length
-          }     // „obj“ is still a „Type“ outside of the type-checked branch
+          }     // "obj" is still a "Type" outside of the type-checked branch
            return 0
       }
       ```
-    - func getStringLength(Type obj) -> Int {     if (obj not is String)         return 0     // „obj“ is automatically cast to „String“ in this branch     return obj.length }
-    - func getStringLength(Type obj) -> Int {     // „obj“ is automatically cast to „String“ on the right-hand side of „and“     if (obj is String  and  obj.length > 0) {         return obj.length     }     return 0 }
+    - ```
+      func getStringLength(Type obj) -> Int {
+          if (obj not is String)
+              return 0     // "obj" is automatically cast to "String" in this branch
+          return obj.length
+       }
+      ```
+    - ```
+      func getStringLength(Type obj) -> Int {
+           // "obj" is automatically cast to "String" on the right-hand side of "and"
+          if (obj is String  and  obj.length > 0) {
+              return obj.length
+          }
+          return 0
+      }
+      ```
