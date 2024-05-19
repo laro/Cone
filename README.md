@@ -434,7 +434,8 @@ Variable declaration still simply as „Int i“, as in C/C++.
     - `Int[3]* pointerToArrayOfThreeInt`
     - `Int[3][]* pointerToArrayOfArrayOfThreeInt`
     - `String*[] arrayOfPointersToString`
-    - **`Float* i, j`   // i and j are pointers**
+    - **`Float* i, j`   // i _and_ j are pointers**
+        - contrary to C/C++.
 - Not allowed / syntax error is:
     - ~~`Float* i, &j`~~
         - Type variations are _not_ allowed.
