@@ -94,7 +94,7 @@ C++ with simplified syntax
         - like `int32_t` or `qint32`, but no prefix "q" nor postfix "_t,) and in CamelCase 
     - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`, `UInt256`
         - e.g. `UInt256` for SHA256
-- `Byte` == `UInt8` (Alias)
+- `Byte` == `UInt8` (Alias, i.e. the same type for parameter overloading)
 - `BigInt` – Arbitrary Precision Integer
     - for cryptography, maybe computer algebra, numerics
     - see [Boost.Multiprecision](https://www.boost.org/doc/libs/1_79_0/libs/multiprecision/doc/html/index.html), [GMP](https://gmplib.org)
