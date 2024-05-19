@@ -513,3 +513,118 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - Like abbreviated function templates in C++ 20, only without `auto`.
 - `template<typename T>` for cases where a common type is required.
 - `requires` for further restricting the type.
+
+
+## Comments
+- One line comments
+    - ```
+      // if (a < b) {
+      //   TODO
+      // }
+      ```
+- Block comments can be _nested_
+    - ```
+      /* This
+       /* (and this) */
+         is a comment */ 
+      ```
+
+
+## SHort Smart Pointer Syntax 
+- `Type^ instance`
+    - C++/Cone: Use `SharedPtr<Type> instance`
+    - `T^` by default is `SharedPtr<T>`
+        - defined via type traits `default_circumflex_type`
+        - For C#/Java/Objective-C/Swift interop possible to redefine as GC reference
+            - Objective-C/Swift: Use their reference counting mechanism
+            - C#/Java: Use garbage collected memory
+    - ~~`T^^` by default is `WeakPtr<T>`~~
+        - ~~defined via type traits `default_circumflex_circumflex_type`.~~
+        - ~~`SharedPtr<SharedPtr<T>>` just doesn't work like that, doesn’t really make sense anyway.~~
+        - Do we really need a short expression for `WeakPtr<T>`?
+     
+## Literals
+- true, false are Bool
+    - or **True**, **False**?
+        - As in Python,
+        - as they are constants.  
+- 123 is an integer literal of arbitrary precision
+    - Can be converted to any integer type it fits into (signed and unsigned)
+        - Int8  a = 1        // Works because 1 fits into Int8
+        - Int8  b = 127    // Works because 127 fits into Int8
+        - Int8  c = 128    // Error because 128 does not fit into Int8
+        - Int8  d = -128  // Works because -128 fits into Int8
+        - Int8  e = -129  // Error because -129 does not fit into Int8
+        - UInt8  f = 255  // Works because 255 fits into UInt8
+        - UInt8  g = 256  // Error because 256 does not fit into Int8
+        - UInt8  h = -1     // Error because -1 does not fit into UInt8
+        - Int16 i = 1         // Works
+        - Int32 j = 1         // Works
+        - Int64 k = 1        // Works 
+        - Int l = a  // Works because Int8 fits into Int32
+        - UInt m = l  // Error because Int does not always fit into UInt
+            - UInt m = UInt(l)   // Works
+        - Int n = m  // Error because UInt does not always fit into Int
+            - Int n = Int(m)   // Works
+    - 123 i interpreted as Int
+        - for type inferring, parameter overloading and template matching.
+    - Difficult: Constexpr constructor that accepts an arbitrary precision integer literal and can store that in ROM
+        - Store as array of Int
+    - 123u is UInt
+    - -123 is always Int (signed)
+- 0xffffffff is UInt in hexadecimal
+- 0b1011 is UInt in binary
+- 0o123 is UInt in octal
+    - as in Python
+    - not 0123, as that is confusing/unexpected, even if it is C++ standard
+- Bool vs. Int
+    - Int a = True      // Error,
+        - because Bool is not an Int
+        - because a Bool should not be accidentally interpreted as an Int
+        - cast if necessary: „Int a = Int(True)“
+    - Bool a = 1      // geht nicht,
+        - because Int is not a Bool
+        - because an Int should not be accidentally interpreted as a Bool
+        - cast if necessary: „Bool a = Bool(1)“ 
+- 1.0 is a floating point literal of arbitrary precision
+    - Can be converted to any float type into which it fits exactly
+        - otherwise explicit cast necessary: „Float16(3.1415926)“
+    - Difficult: Constexpr constructor that accepts an arbitrary precision float literal and can store that in ROM
+        - Store the mantissa as arbitrary precision integer (i.e. array of Int), plus the exponent as as arbitrary precision integer (i.e. array of Int, most always only a single Int)
+    - 1.0 is interpreted as Float
+        - for type inferring, parameter overloading and template matching.
+    - 1.0f is always Float32
+    - 1.0d is always Float64 
+- "Text" is a StringView
+    - Pointer to first character and pointer after the last character
+        - in C++/Cone tradition, but length would also work, of course
+    - No Null termination
+        - If necessary
+            - use „Text\0“  or
+            - convert using „StringZ(…)“.
+    - Data is typically stored in read-only data segments or ROM.
+- Multiline String Literal
+    - """ First line Second line """
+    - Removes indentation as in the last line
+    - Removes first newline
+    - Also good for RegEx
+        - """(.* )whatever(.*)“““
+    - as in Swift, Julia
+- Interpolated Strings
+    - $“M[{i},{j}] = {M[i, j]}“
+- Alternative string literals
+    - „Text“utf8 (is the default anyway), „Text“utf16, „Text“utf32
+    - „Text“ascii
+        - Syntax error, if one of the characters is not ASCII
+    - „Text“latin1
+        - Syntax error, if one of the characters is not Latin-1
+    - „Text“sz is a zero terminated string (as used in C)
+        - Problem: How to combine e.g. „“ascii and „“sz?
+            - Workaround: Use „Text\0“ascii
+    - Unclear: Should all these be available for multiline string literals and interpolated strings, too?
+        - Why not? 
+- [1, 2, 3] is an array (here an „Int[]“)
+    - all elements have the same type
+- {1, „Text“, 3.0} is an initialization list
+    - e.g. for Tuple
+- {   „Key1“: „Value1“ 
