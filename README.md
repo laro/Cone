@@ -623,7 +623,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - like in C#
         - Any reason to use/prefer any other syntax?
 - Alternative string literals
-    - `"Text"utf8` (is the default anyway), `"Text"utf16`, `"Text"utf32`
+    - `"Text"utf8` (but UTF-8 is the default anyway), `"Text"utf16`, `"Text"utf32`
     - `"Text"ascii`
         - Syntax error, if one of the characters is not ASCII
     - `"Text"latin1`
