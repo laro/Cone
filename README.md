@@ -651,4 +651,4 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - Swift would be `1...10`
         - I like `...` to be reserved for ellipsis in human language like comments
 - Rules for user defined literals
-        - as in C++.
+    - as in C++.
