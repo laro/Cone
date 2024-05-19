@@ -348,6 +348,7 @@ C++ has a "tradition" of complicated keywords or reuse of keywords, simply as to
     - `var` instead of `auto`
     - `func` instead of `auto`
     - `for … in …` instead of `for (… : …)`
+        - `for i in a..b` instead of `for (int i = a; i <= b; ++i)`
     - `class … extends …` instead of `class … : …`
         - or better `implements`?
     - `await` instead of `co_await`
