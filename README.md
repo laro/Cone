@@ -503,8 +503,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
           ```
         - However, the return type could be a different type than `x` is (as long as it satisfies the concept `Number`)
     - `func add(Number a, b) -> Number`
-        - `a`, `b` and the return type could each be a different type (as long as it satisfies the concept `Number`)
-    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or BigFloat):
+        - `a`, `b` and the return type could each be a _different_ type (as long as it satisfies the concept `Number`)
+    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or `BigFloat`):
       ```
        func sqrt(Real x) -> Real {
            // … a series development …
