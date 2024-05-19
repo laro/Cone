@@ -238,21 +238,21 @@ C++ with simplified syntax
         - `for ch in ASCIIString("abc")`
             - Exception thrown, if string contains non-ASCII characters.
             - 0x61, 0x62, 0x63
-            - ‚a‘, ‚b‘, ‚c‘
+            - 'a', 'b', 'c'
     - to iterate over all bytes/characters of a Latin1 (ISO 8859-1) string,
         - `for ch in "äbc"latin1`
             - Compilation error, if string contains non-Latin1 characters.
         - `for ch in Latin1String("äbc")`
             - Exception thrown, if string contains non-Latin1 characters.
             - 0xe4, 0x62, 0x63
-            - ‚ä‘, ‚b‘, ‚c‘
+            - 'ä', 'b', 'c'
 - `Char16`
     - to iterate over strings encoded as UTF-16 with `.asArray()`
         - `for ch16 in "abc 🥸👮🏻"utf16.asArray()`
         - `for ch16 in UTF16String("abc 🥸👮🏻").asArray()`
             - 0x0061, 0x0062, 0x0063, 0x0020, &nbsp; 0xD83E, 0xDD78, &nbsp; 0xD83D, 0xDC6E, 0xD83C, 0xDFFB
 - `Char32`
-    - to iterate over strings encoded as UTF-32 with ".asArray()"
+    - to iterate over strings encoded as UTF-32 with `.asArray()`
         - `for ch32 in "abc 🥸👮🏻"utf32.asArray()`
         - `for ch32 in UTF32String("abc 🥸👮🏻").asArray()`
             - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E , 0x0001F3FB
