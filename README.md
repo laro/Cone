@@ -641,7 +641,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - is a `Map<String,String>`
 - Range literals `1..10` and `1..<10`
     - as in Kotlin
-    - Swift would be `1…10`
-        - I like `…` to be reserved for ellipsis in human language like comments
-- Rules for User defined literals
+    - Swift would be `1...10`
+        - I like `...` to be reserved for ellipsis in human language like comments
+- Rules for user defined literals
         - as in C++.
