@@ -553,11 +553,11 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - as they are constants.  
 - `123` is an integer literal of arbitrary precision
     - Can be converted to any integer type it fits into (signed and unsigned)
-        - `Int8  a = 1`    // Works because `1` fits into `Int8`
-        - `Int8  b = 127`  // Works because `127` fits into `Int8`
-        - `Int8  c = 128`  // _Error_ because 128 does _not_ fit into `Int8`
-        - `Int8  d = -128` // Works because `-128` fits into `Int8`
-        - `Int8  e = -129` // _Error_ because `-129` does _not_ fit into `Int8`
+        - `Int8 a = 1`    // Works because `1` fits into `Int8`
+        - `Int8 b = 127`  // Works because `127` fits into `Int8`
+        - `Int8 c = 128`  // _Error_ because 128 does _not_ fit into `Int8`
+        - `Int8 d = -128` // Works because `-128` fits into `Int8`
+        - `Int8 e = -129` // _Error_ because `-129` does _not_ fit into `Int8`
         - `UInt8 f = 255`  // Works because `255` fits into `UInt8`
         - `UInt8 g = 256`  // _Error_ because `256` does _not_ fit into `Int8`
         - `UInt8 h = -1`   // _Error_ because `-1 does _not_ fit into `UInt8`
