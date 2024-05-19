@@ -532,12 +532,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
 
 ## Short Smart Pointer Syntax 
 - `Type^ instance`
-    - C++/Cone: Use `SharedPtr<Type> instance`
     - `T^` by default is `SharedPtr<T>`
-        - defined via type traits `default_circumflex_type`
-        - For C#/Java/Objective-C/Swift interop possible to redefine as GC reference
-            - Objective-C/Swift: Use their reference counting mechanism
-            - C#/Java: Use garbage collected memory
+        - for C++/Cone,
+        - defined via type traits `default_circumflex_type`.
+    - Possible to redefine for interoperability with other languages:
+        - Objective-C/Swift: Use their reference counting mechanism
+        - C#/Java: Use garbage collected memory
     - ~~`T^^` by default is `WeakPtr<T>`~~
         - ~~defined via type traits `default_circumflex_circumflex_type`.~~
         - ~~`SharedPtr<SharedPtr<T>>` just doesn't work like that, doesn’t really make sense anyway.~~
