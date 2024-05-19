@@ -547,28 +547,28 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - Do we really need a short expression for `WeakPtr<T>`?
      
 ## Literals
-- true, false are Bool
-    - or **True**, **False**?
+- `true`, `false` are Bool
+    - or **`True`**, **`False`**?
         - As in Python,
         - as they are constants.  
 - `123` is an integer literal of arbitrary precision
     - Can be converted to any integer type it fits into (signed and unsigned)
-        - `Int8  a = 1`        // Works because 1 fits into Int8
-        - `Int8  b = 127`    // Works because 127 fits into Int8
-        - `Int8  c = 128`    // Error because 128 does not fit into Int8
-        - `Int8  d = -128`  // Works because -128 fits into Int8
-        - `Int8  e = -129`  // Error because -129 does not fit into Int8
-        - `UInt8  f = 255`  // Works because 255 fits into UInt8
-        - `UInt8  g = 256`  // Error because 256 does not fit into Int8
-        - `UInt8  h = -1`     // Error because -1 does not fit into UInt8
-        - `Int16 i = 1`         // Works
-        - `Int32 j = 1`         // Works
-        - `Int64 k = 1`        // Works`
-        - `Int l = a`  // Works because Int8 fits into Int32
-        - `UInt m = l`  // Error because Int does not always fit into UInt
-            - `UInt m = UInt(l)`   // Works
-        - `Int n = m`  // Error because UInt does not always fit into Int
-            -` Int n = Int(m)`   // Works
+        - `Int8  a = 1`    // Works because 1 fits into Int8
+        - `Int8  b = 127`  // Works because 127 fits into Int8
+        - `Int8  c = 128`  // _Error_ because 128 does _not_ fit into Int8
+        - `Int8  d = -128` // Works because -128 fits into Int8
+        - `Int8  e = -129` // _Error_ because -129 does _not_ fit into `Int8`
+        - `UInt8 f = 255`  // Works because `255` fits into `UInt8`
+        - `UInt8 g = 256`  // _Error_ because `256` does _not_ fit into `Int8`
+        - `UInt8 h = -1`   // _Error_ because `-1 does _not_ fit into `UInt8`
+        - `Int16 i = 1`    // Works
+        - `Int32 j = 1`    // Works
+        - `Int64 k = 1`    // Works`
+        - `Int l = a`      // Works because `Int8` fits into `Int32`
+        - `UInt m = l`     // _Error_ because `Int` does _not_ always fit into `UInt`
+            - `UInt m = UInt(l)` // Works
+        - `Int n = m`  // Error because `UInt` does not always fit into `Int`
+            - `Int n = Int(m)`   // Works
     - `123` is interpreted as `Int`
         - for type inferring, parameter overloading and template matching.
     - Difficult: Constexpr constructor that accepts an arbitrary precision integer literal  and can store that in ROM
