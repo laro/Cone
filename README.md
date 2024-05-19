@@ -64,18 +64,18 @@ C++ with simplified syntax
             - `multimap` -> `Multimap` or `MultiMap`?
     - Arithmetic types
         - `Bool`
-        - `Int` == `Int32` or `64`
-            - `Int8`, `Int16`, `Int32`, `Int64`, maybe `Int128`
-        - `UInt` == `UInt32` or `64`
-            - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`
+        - `Int`
+            - `Int8`, `Int16`, `Int32`, `Int64`, maybe `Int128`, `Int256`
+        - `UInt`
+            - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`, `UInt256`
         - `BigInt` (Arbitrary Precision Integer)
         - `Float`
             - `Float16`, `Float32`, `Float64` (Half, Single, Double Precision Floating Point)
                 - maybe `Float128`, `Float256`
             - `BFloat16` (Brain Floating Point)
-            - `BigFloat` for Arbitrary Precision Float
+            - `BigFloat` (Arbitrary Precision Float)
         - `Byte` == `UInt8`
-        - `Char` == `UInt8`~~, `CodePoint` == `UInt32`~~
+        - `Char` == `Char8`, `Char16`, `Char32`~~, `CodePoint` == `UInt32`~~
 
 - Functions in lower camelCase
     - Roughly in the style of Qt, Objective-C/C++, Java, JavaScript, TypeScript, Kotlin, Swift
