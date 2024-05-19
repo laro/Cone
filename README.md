@@ -417,10 +417,10 @@ As in Python, Kotlin, Swift, JavaScript, Julia
 
 
 ## Variable Declaration
-Variable declaration still simply as „Int i“, as in C/C++.
+Variable declaration still simply as `Int i`, as in C/C++.
 - Or is that still not clear enough?
     - Could be problematic in connection with omitting the trailing semicolons,
-    - Swift, Kotlin and Circle always start variable declarations with "var“.
+    - Swift, Kotlin and Circle always start variable declarations with `var`.
 - Not
     - ~~`var Int i`~~
     - ~~`var i : Int`~~
