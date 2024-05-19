@@ -607,7 +607,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
             - convert using `StringZ(…)`.
     - Data is typically stored in read-only data segments or ROM.
 - Multiline String Literal
-    - """ First line Second line """
+    - ```
+      """
+      First line
+       Second line
+       """
+      ```
     - Removes indentation as in the last line
     - Removes first newline
     - Also good for RegEx
