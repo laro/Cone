@@ -370,3 +370,47 @@ C++ has a "tradition" of complicated names, keywords or reuse of keywords, simpl
     - `int var` -> `Int __variable_var`
     - `class func` -> `class __class_func`
     - `yield()` -> `func __function_yield()`
+
+
+## No Trailing Semicolons
+As in Python, Kotlin, Swift, JavaScript, Julia
+- Advantage:
+    - Better readability
+- Disadvantage:
+    - Errors are less easily recognized
+        - Walter Bright / D: „Redundancy helps“
+    - This probably means that a completely new parser must be written, as the one from clang (for C++) no longer fits at all.
+        - As this is difficult & unclear/disputed: Keep C++ semicolons for now?
+- Multiline expressions:
+    - Explicitly via „\“ or „(…)“ / „[…]“ / „{…}“ as in Python
+    - Implicitly/clever as in Swift, Kotlin and JavaScript?
+- Only in REPL:
+    - Trailing semicolon used to suppress evaluation output,
+        - as in Matlab, Python, Julia.
+     
+## Functions
+- `func function1(Int i) -> Float { return i * 3.14 }`
+- `func function1(Int i) -> Float { return i * 3.14 }`
+    - ~~or `fn` (Rust, Carbon, New Circle), `fun` (Kotlin), `function` (Julia)~~
+    - Easier parsing due to clear distinction between function vs. variable declaration.
+    - Always and only in the trailing return type syntax.
+- `func function2(Int x, y) -> Float` // x _and_ y are Int
+- Lambdas
+    - `[](Int i)->Float { i * 3.14 }`
+- Function pointers
+    - Difficult to maintain consistency between declarations of functions, function pointers, functors and lambdas.
+    - Variant A:
+        - **`func(Int, Int -> Int)* pointerToFunctionOfIntToInt`**
+        - **`func(Int)* pointerToFunctionOfInt`**
+        - `func(Int, Int -> Int)& referenceToFunctionOfIntToInt` // Can't be zero; is that useful?
+        - `func(Int)& referenceToFunctionOfInt`
+    - ~~Variant B:~~
+        - ~~`func((Int, Int) -> Int)* pointerToFunctionOfIntToInt`  // Closer to the function declaration but (too) many brackets~~
+    - ~~Variant C:~~
+        - ~~`(Int, Int -> Int)` [Functions are only available as pointers, so you can omit "*"?]~~
+    - ~~Variant D:~~
+        - ~~`func*(Int->Int) pointerToFunctionOfIntToInt`~~
+        - ~~`func*(Int) pointerToFunctionOfInt`~~
+    - ~~Variant E:~~
+        - ~~`func*(Int, Int)->Int pointerToFunctionOfIntAndIntToInt`~~
+        - ~~`(func*(Int, Int)->Int)[] arrayOfPointersToFunctionOfIntAndIntToInt`~~
