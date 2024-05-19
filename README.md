@@ -493,7 +493,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
       }
       ```
 
-## Automatic templates
+## Automatic Templates
 - If the type of a function argument is a concept, then the function is a template.
     - Concept `Number`:
         - ```
@@ -530,7 +530,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
       ```
 
 
-## SHort Smart Pointer Syntax 
+## Short Smart Pointer Syntax 
 - `Type^ instance`
     - C++/Cone: Use `SharedPtr<Type> instance`
     - `T^` by default is `SharedPtr<T>`
