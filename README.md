@@ -445,3 +445,34 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - No whitespace _whithin_ type specification allowed.
     - ~~`Float*i`~~
         - Whitespace _between_ type specification and variable name is mandatory.
+
+
+## Casting
+- Constructor casting
+    - `Float(3)`
+    - no classic C-style casting: ~~`(Float) 3`~
+    - but also
+        - ~~const_cast<>~~
+        - mutable_cast<>
+        - reinterpret_cast<>
+        - static_cast<>?
+- Automatic casts
+    - as in Kotlin,
+    - for templates, references and pointers.
+    - Multiple inheritance is problematic here:
+        - In Cone/C++, an object can be an instance of several base classes at once, whereby the pointer (typically) changes during casting.
+        - What if you still want/need to access the functions for a `Type obj` after `if (obj is ParentA)`?
+            - Workaround: Cast back with `Type(obj).functionOfA()`
+        - ~~Therefore maybe better: `if (obj is String str) ...`~~
+            - ~~as in C#~~
+    - ```
+      func getStringLength(Type obj) -> Int {
+           if (obj is String) {
+               // `obj` is automatically cast to „String“ in this branch
+               return obj.length
+          }     // „obj“ is still a „Type“ outside of the type-checked branch
+           return 0
+      }
+      ```
+    - func getStringLength(Type obj) -> Int {     if (obj not is String)         return 0     // „obj“ is automatically cast to „String“ in this branch     return obj.length }
+    - func getStringLength(Type obj) -> Int {     // „obj“ is automatically cast to „String“ on the right-hand side of „and“     if (obj is String  and  obj.length > 0) {         return obj.length     }     return 0 }
