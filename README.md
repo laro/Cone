@@ -450,7 +450,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 ## Casting
 - Constructor casting
     - `Float(3)`
-    - no classic C-style casting: ~~`(Float) 3`~
+    - no classic C-style casting: ~~`(Float) 3`~~
     - but also
         - ~~const_cast<>~~
         - mutable_cast<>
