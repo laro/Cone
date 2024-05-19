@@ -389,8 +389,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
         - as in Matlab, Python, Julia.
      
 ## Functions
-- `func function1(Int i) -> Float { return i * 3.14 }`
-- `func function1(Int i) -> Float { return i * 3.14 }`
+- `func aFunction(Int i) -> Float { return i * 3.14 }`
     - ~~or `fn` (Rust, Carbon, New Circle), `fun` (Kotlin), `function` (Julia)~~
     - Easier parsing due to clear distinction between function vs. variable declaration.
     - Always and only in the trailing return type syntax.
