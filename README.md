@@ -393,7 +393,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
     - ~~or `fn` (Rust, Carbon, New Circle), `fun` (Kotlin), `function` (Julia)~~
     - Easier parsing due to clear distinction between function vs. variable declaration.
     - Always and only in the trailing return type syntax.
-- `func function2(Int x, y) -> Float` // x _and_ y are Int
+- `func function2(**Int x, y**) -> Float` // x _and_ y are Int
 - Lambdas
     - `[](Int i) -> Float { i * 3.14 }`
 - Function pointers
