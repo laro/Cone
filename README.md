@@ -419,6 +419,29 @@ As in Python, Kotlin, Swift, JavaScript, Julia
         - `func Int::toString() -> String { … }`  // as in Kotlin
             - ~~or `func toString (Int this) -> String` ~~
 
+
+## Automatic Templates
+- If the type of a function argument is a concept, then the function is a template.
+    - Concept `Number`:
+        - ```
+          func sq(Number x) -> Number {
+               return x * x
+           }
+          ```
+        - However, the return type could be a different type than `x` is (as long as it satisfies the concept `Number`)
+    - `func add(Number a, b) -> Number`
+        - `a`, `b` and the return type could each be a _different_ type (as long as it satisfies the concept `Number`)
+    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or `BigFloat`):
+      ```
+       func sqrt(Real x) -> Real {
+           // … a series development …
+      }
+      ```
+- Like abbreviated function templates in C++ 20, only without `auto`.
+- `template<typename T>` for cases where a common type is required.
+- `requires` for further restricting the type.
+
+
 ## Variable Declaration
 Variable declaration still simply as `Int i`, as in C/C++.
 - Or is that still not clear enough?
@@ -493,27 +516,6 @@ Variable declaration still simply as `Int i`, as in C/C++.
           return 0
       }
       ```
-
-## Automatic Templates
-- If the type of a function argument is a concept, then the function is a template.
-    - Concept `Number`:
-        - ```
-          func sq(Number x) -> Number {
-               return x * x
-           }
-          ```
-        - However, the return type could be a different type than `x` is (as long as it satisfies the concept `Number`)
-    - `func add(Number a, b) -> Number`
-        - `a`, `b` and the return type could each be a _different_ type (as long as it satisfies the concept `Number`)
-    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or `BigFloat`):
-      ```
-       func sqrt(Real x) -> Real {
-           // … a series development …
-      }
-      ```
-- Like abbreviated function templates in C++ 20, only without `auto`.
-- `template<typename T>` for cases where a common type is required.
-- `requires` for further restricting the type.
 
 
 ## Comments
