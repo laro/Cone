@@ -382,7 +382,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
     - This probably means that a completely new parser must be written, as the one from clang (for C++) no longer fits at all.
         - As this is difficult & unclear/disputed: Keep C++ semicolons for now?
 - Multiline expressions:
-    - Explicitly via „\“ or „(…)“ / „[…]“ / „{…}“ as in Python
+    - Explicitly via `\` or `(…)` / `[…]` / `{…}` as in Python
     - ~~Implicitly/clever as in Swift, Kotlin and JavaScript?~~
 - Only in REPL:
     - Trailing semicolon used to suppress evaluation output,
