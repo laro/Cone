@@ -623,20 +623,20 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - like in C#
         - Any reason to use/prefer any other syntax?
 - Alternative string literals
-    - „Text“utf8 (is the default anyway), „Text“utf16, „Text“utf32
-    - „Text“ascii
+    - `"Text"utf8` (is the default anyway), `"Text"utf16`, `"Text"utf32`
+    - `"Text"ascii`
         - Syntax error, if one of the characters is not ASCII
-    - „Text“latin1
+    - `"Text"latin1`
         - Syntax error, if one of the characters is not Latin-1
-    - „Text“sz is a zero terminated string (as used in C)
-        - Problem: How to combine e.g. „“ascii and „“sz?
-            - Workaround: Use „Text\0“ascii
-    - Unclear: Should all these be available for multiline string literals and interpolated strings, too?
-        - Why not? 
-- [1, 2, 3] is an array (here an „Int[]“)
+    - `"Text"sz` is a zero terminated string (as used in C)
+        - Problem: How to combine e.g. `"..."ascii` and `"..."sz`?
+            - Workaround: Use `"Text\0"ascii`
+    - All these available for multiline string literals and interpolated strings, too.
+        - Any reason, not to? 
+- `[1, 2, 3]` is an array (here an `Int[]`)
     - all elements have the same type
-- {1, „Text“, 3.0} is an initialization list
-    - e.g. for Tuple
+- `{1, "Text", 3.0}` is an initialization list
+    - e.g. for `Tuple`
 - ```
   {
        "Key1": "Value1"
