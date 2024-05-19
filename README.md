@@ -436,6 +436,9 @@ Variable declaration still simply as „Int i“, as in C/C++.
     - `String*[] arrayOfPointersToString`
     - **`Float* i, j`   // i and j are pointers**
 - Not allowed / syntax error is:
-    - `Float* i, &j`  // Syntax error, is not allowed
-    - `Float *i`       // Syntax error, is not allowed
-    - `Float*i`        // Syntax error, is not allowed
+    - `Float* i, &j`
+        - Type variations are _not_ allowed.
+    - `Float *i`
+        - _No whitespace_ whithin type specification allowed.
+    - `Float*i`
+        - _Whitespace_ between type specification and variable name is mandatory.
