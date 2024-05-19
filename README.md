@@ -440,6 +440,6 @@ Variable declaration still simply as „Int i“, as in C/C++.
     - ~~`Float* i, &j`~~
         - Type variations are _not_ allowed.
     - ~~`Float *i`~~
-        - _No whitespace_ whithin type specification allowed.
+        - No whitespace _whithin_ type specification allowed.
     - ~~`Float*i`~~
-        - _Whitespace_ between type specification and variable name is mandatory.
+        - Whitespace _between_ type specification and variable name is mandatory.
