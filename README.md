@@ -383,7 +383,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
         - As this is difficult & unclear/disputed: Keep C++ semicolons for now?
 - Multiline expressions:
     - Explicitly via „\“ or „(…)“ / „[…]“ / „{…}“ as in Python
-    - Implicitly/clever as in Swift, Kotlin and JavaScript?
+    - ~~Implicitly/clever as in Swift, Kotlin and JavaScript?~~
 - Only in REPL:
     - Trailing semicolon used to suppress evaluation output,
         - as in Matlab, Python, Julia.
