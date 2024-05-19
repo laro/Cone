@@ -422,11 +422,11 @@ Variable declaration still simply as „Int i“, as in C/C++.
     - Could be problematic in connection with omitting the trailing semicolons,
     - Swift, Kotlin and Circle always start variable declarations with "var“.
 - Not
-    - ~~„var Int i“~~
-    - ~~„var i : Int“~~
+    - ~~`var Int i`~~
+    - ~~`var i : Int`~~
 - `var i = 3` only for type inference
-    - ~~Maybe possible to simply write „i = 3“?~~
-    - ~~Maybe „i := 3“?~~
+    - ~~Maybe possible to simply write `i = 3`?~~
+    - ~~Maybe `i := 3`?~~
 - Examples:
     - `Int anInt`
     - `Int[] arrayOfInt`
