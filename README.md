@@ -29,8 +29,8 @@ When we are at it, after a quick look at Python.
         - with an own / a new compiler frontend (or a precompiler).
     - So _no_ garbage collection,  
       instead you use
-        - RAII (Resource Acquisition is Initialization)
-            - RROD (Resource Release on Object Destruction)
+        - **RAII** (Resource Acquisition is Initialization)
+            - **RROD** (Resource Release on Object Destruction)
         - `SharedPtr<T>` etc.
 
 
@@ -56,7 +56,7 @@ When we are at it, after a quick look at Python.
 
 
 ## Style
-- All types and classes in upper CamelCase (even the standard/STL classes).
+- All types and **classes in upper CamelCase** (even the standard/STL classes).
     - Style similar to Kotlin, Swift
     - Cone standard library (`cone::` instead of `std::`)
         - `std::string` -> `cone::String`
@@ -85,11 +85,12 @@ When we are at it, after a quick look at Python.
         - `Byte` == `UInt8`
         - `Char` == `Char8`, `Char16`, `Char32`~~, `CodePoint` == `UInt32`~~
 
-- Functions in lower camelCase
+- **Functions in lower camelCase**
     - Roughly in the style of Qt, Objective-C/C++, Java, JavaScript, TypeScript, Kotlin, Swift
 
 - Namespaces fully lowercase 
     - Standard namespace `cone`~~, `c1` ~~
+    - I am not sure about this, I don't think it's important. But this helps to differentiate between classes and namepsaces.
 
 
 ## Arithmetic Types
