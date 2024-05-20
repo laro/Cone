@@ -689,22 +689,22 @@ Variable declaration still simply as `Int i`, as in C/C++.
           
 ## Operators
 - `a^x` for `pow(a, x)` (as Julia)
-    - or „a**x“? (as Python)
-- Remove ++i, --i, i++, I--?
-    - as Python
-    - only offer/allow „i += 1“, „i -= 1“
-- Default „operator==“
+    - ~~or `a**x`? (as Python)~~
+- ~~Remove `++i`, `--i`, `i++`, `i--`?~~
+    - ~as Python~~
+    - ~~only offer/allow `i += 1`, `i -= 1`~~
+- Default `operator==`
     - If not defined, then
-        - use „operator!=“ (if defined; negated)
-        - use „operator<=>“ (if defined)
-        - Elementwise comparison with „==“
-            - Only possible if all elements themselves offer the „operator==“.
+        - use negated `operator!=` (if defined)
+        - use `operator<=>` (if defined)
+        - Elementwise comparison with `==`
+            - Only possible if all elements themselves offer the `operator==`.
             - Optimization for simple types: Byte-by-byte comparison.
-- Default „operator!=“
+- Default `operator!=`
     - If not defined, then
-        - Use „operator==“ (if defined; negated)
-        - Use „operator<=>“ (if defined)
-        - Use generated „operator==“ (negated)
+        - Use negated `operator==` (if defined)
+        - Use `operator<=>` (if defined)
+        - Use generated `operator==` (negated)
 - `<<` Shift left (here a logical shift with UInt is the same as arithmetic shift with Int)
 - `>>` Shift right (logical shift with Uint, arithmetic shift with Int)
 - `<<<` Rotate left (circular shift left)
@@ -722,26 +722,26 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - a.shiftLeft(Int steps, mutable carry)
  
 
-- For-in loop (instead of „for (… : …)“ or „foreach“)
+- For-in loop (instead of `for (… : …)` or `foreach`)
     - as in Rust, Swift
     - With range literal also used instead of
-        - „for (Int i = 0; i < 10; ++i) { … }“
-            - „for i in 1..9“
-            - „for i in 1..<10“
+        - `for (Int i = 0; i < 10; ++i) { … }`
+            - `for i in 1..9`
+            - `for i in 1..<10`
             - Not recommended, but possible
-                - „for i in Range(1, 10)“
-                - „for i in Range(10, 1, 1)“
-                - „for i in Range(10..1, 1)“
-        - „for (Int i = 10; i > 0; —i) { … }“
-            - „for i in 10..1:-1“
-            - ? „for i in 10..>0:-1“
-            - „for i in (1..10).reversed()“
+                - `for i in Range(1, 10)`
+                - `for i in Range(10, 1, 1)`
+                - `for i in Range(10..1, 1)`
+        - `for (Int i = 10; i > 0; —i) { … }`
+            - `for i in 10..1:-1`
+            - ? `for i in 10..>0:-1`
+            - `for i in (1..10).reversed()`
             - Not recommended, but possible
-                - „for i in Range(10, 1, -1)“
-                - „for i in Range(10..1, -1)“
-                - „for i in 10 downTo 1 step 1“
-                - „for i in 10..1 by -1“
-                - „for i in 10..1 step -1“
+                - `for i in Range(10, 1, -1)`
+                - `for i in Range(10..1, -1)`
+                - `for i in 10 downTo 1 step 1`
+                - `for i in 10..1 by -1`
+                - `for i in 10..1 step -1`
 
 -  if 1 <= x <= 10 { … }
     - as in Python, Julia, Cpp2 (Herb Sutter)
@@ -753,23 +753,23 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - arrayOfThreeIntegers.size() -> 3 (realised as extension function)
     - Int[] arrayOfIntegers
         - „Dynamic array“ – dynamic size
-        - Translated to „Array<T>“ (normally cone::Array<T> will be used)
+        - Translated to `Array<T>` (normally cone::Array<T> will be used)
         - cone::Array<Int>
-            - not called „cone::Vector<Int>“, because this could easily collide with the mathematical (numerical/geometric) Vector.
+            - not called `cone::Vector<Int>`, because this could easily collide with the mathematical (numerical/geometric) Vector.
             - (See Matrix & Vector, even if they are in other sub-namespaces.)
         - Problem: Confusing because so similar to fixed-size arrays?
         - Use Int* for C/C++ arrays of arbitrary size
             - Int* array = new Int[4] array[3] = 0 array[4] = 0  // Runtime error, no bounds check
     - Int[3, 2, 200]
         - Multidimensional array
-        - „Int[3, 2, 200] intArray3D intArray3D[2, 1, 199] = 1“
+        - `Int[3, 2, 200] intArray3D intArray3D[2, 1, 199] = 1`
     - int[,,]
         - Multidimensional dynamic array
-        - „cone::NArray<Int, 3>“
-        - or „Int[*, *, *]“?
+        - `cone::NArray<Int, 3>`
+        - or `Int[*, *, *]`?
         - TODO Mixed forms?
-            - „Int[3, *, *]“ 
-            - „Int[3, 4, *]“
+            - `Int[3, *, *]` 
+            - `Int[3, 4, *]`
          
         
 - Matrix & Vector
@@ -815,21 +815,21 @@ Variable declaration still simply as `Int i`, as in C/C++.
  
       
 ## Versioning of the Cone source code
-- Via file „.coneVersion“ „.cone_version“ in a (project) directory,
-    - similar to „.clang_format“,
+- Via file ".coneVersion" ".cone_version" in a (project) directory,
+    - similar to ".clang_format",
     - also possible file by file: Matrix.coneVersion (for Matrix.cone).
 - Via file extension: 
-    - „*.cone – always the latest language version (if not defined otherwise via „.coneVersion“)
-    - „*.2024.cone“ – Version from the year 2024
-    - „*.2024b.cone“ – Second version from the year 2024
-    - „*.cone2024“ – Version from the year 2024
-    - „*.cone2024b“ – Second version from the year 2024
-    - „*.cone_2024“ – Version from the year 2024
-    - „*.cone_2024b“ – Second version from the year 2024
-    - „*.c1a“
-    - „*.c1b“
-    - „*ConeA“
-        - „*.ConeB“
+    - "*.cone" – always the latest language version (if not defined otherwise via ".coneVersion")
+    - "*.2024.cone" – Version from the year 2024
+    - "*.2024b.cone" – Second version from the year 2024
+    - "*.cone2024" – Version from the year 2024
+    - "*.cone2024b" – Second version from the year 2024
+    - "*.cone_2024" – Version from the year 2024
+    - "*.cone_2024b" – Second version from the year 2024
+    - "*.c1a"
+    - "*.c1b"
+    - "*ConeA"
+        - "*.ConeB"
          
               
 ## Fix C++ "wrong defaults"
@@ -845,11 +845,11 @@ Variable declaration still simply as `Int i`, as in C/C++.
 3. Implicit narrowing conversions.
     - Not allowed
 4. Switches should break rather than fallthrough.
-    - Keyword „fallthrough“ instead
+    - Keyword `fallthrough` instead
 5. Operator precedence is complicated and wrong.
     - If the suggestion of Sean Baxter / Circle works well, then that would be fine.
 6. Hard-to-parse declarations and the most vexing parse.
-    - „func“ but not „var“
+    - `func` but not `var`
 7. Template brackets < > are a nightmare to parse.
     - Only if it really has to be.
 8. Forwarding parameters and std::forward are error prone.
@@ -866,7 +866,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
        
         
 ## Capabilities of Julia
-- „b = 2a“ as short form of „b = 2*a“
+- `b = 2a` as short form of `b = 2*a`
 - x ÷ y, integer divide, like x / y, truncated to an integer
 - sqrt(x), √x
 - cbrt(x), ∛x
