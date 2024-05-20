@@ -473,13 +473,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - static_cast<>?
 - Automatic casts
     - as in Kotlin,
-    - for templates, references and pointers.
-    - Multiple inheritance is problematic here:
-        - In Cone/C++, an object can be an instance of several base classes at once, whereby the pointer (typically) changes during casting.
-        - What if you still want/need to access the functions for a `Type obj` after `if obj is ParentA`?
-            - Workaround: Cast back with `Type(obj).functionOfA()`
-        - ~~Therefore maybe better: `if obj is String str ...`~~
-            - ~~as in C#~~
+    - for template types, references and pointers.
     - ```
       func getStringLength(Type obj) -> Int {
            if obj is String {
@@ -507,6 +501,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
           return 0
       }
       ```
+    - Multiple inheritance is problematic here:
+        - In Cone/C++, an object can be an instance of several base classes at once, whereby the pointer (typically) changes during casting.
+        - What if you still want/need to access the functions for a `Type obj` after `if obj is ParentA`?
+            - Workaround: Cast back with `Type(obj).functionOfA()`
+        - ~~Therefore maybe better: `if obj is String str ...`~~
+            - ~~as in C#~~
 
 
 ## Comments
