@@ -50,7 +50,7 @@ When we are at it, after a quick look at Python.
                 - `*.h` is of course a problem, as the header could be C or C++ code, but can probably best be solved using path based rules.
                 - So use of `*.hpp` is recommended for C++ code.
         - path based rules
-            - C++ standard headers in certain directories 
+            - to handle C or C++ standard headers in certain directories 
         - can be set in IDE
             - for each file individually 
 
