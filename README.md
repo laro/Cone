@@ -874,7 +874,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         
 ## Capabilities of Julia
 - `b = 2a` as short form of `b = 2*a`
--` x ÷ y`, integer divide, like `x / y`, truncated to an integer
+- `x ÷ y`, integer divide, like `x / y`, truncated to an integer
 - `sqrt(x)`, `√x`
 - `cbrt(x)`, `∛x`
 - `!=`, `≠`
