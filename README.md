@@ -842,7 +842,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 ## Fix C++ "wrong defaults"
 1. Uninitialized automatic variables.
     - Unclear - haven't people gotten used to it?
-    - Then there should be a keyword "noinit“,
+    - Then there should be a keyword `noinit`,
         - at least for large arrays.
     - Only for stack variables or also for free memory/heap?
         - With virtual memory, this is actually "free".
