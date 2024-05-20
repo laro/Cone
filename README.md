@@ -666,3 +666,221 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - Like abbreviated function templates in C++ 20, only without `auto`.
 - `template<typename T>` for cases where a common type is required.
 - `requires` for further restricting the type.
+
+
+## Safe Int
+- `cone::safe::Int`
+    - Like `cone::Int`, but with **overflow check** for all operations,
+        - may throw OverflowException.
+    - `safe::Int8`/`Int16`/`Int32`/`Int64`
+    - `safe::Uint`
+        - `safe::UInt8`/`UInt16`/`UInt32`/`UInt64`
+     
+
+## Saturating
+- `cone::saturating::Int`
+    - Like `cone::Int`, but with **saturation** for all operations.
+        - Limit to maximum, no wrap around.
+        - Typically using SIMD (as those „media/DSP instructions“ do support saturation natively).
+    - see https://en.wikipedia.org/wiki/Saturation_arithmetic 
+    - `saturating::Int8`/`Int16`/`Int32`/`Int64`
+    - `saturating::Uint`
+        - `saturating::UInt8`/`UInt16`/`UInt32`/`UInt64`
+          
+## Operators
+- `a^x` for `pow(a, x)` (as Julia)
+    - or „a**x“? (as Python)
+- Remove ++i, --i, i++, I--?
+    - as Python
+    - only offer/allow „i += 1“, „i -= 1“
+- Default „operator==“
+    - If not defined, then
+        - use „operator!=“ (if defined; negated)
+        - use „operator<=>“ (if defined)
+        - Elementwise comparison with „==“
+            - Only possible if all elements themselves offer the „operator==“.
+            - Optimization for simple types: Byte-by-byte comparison.
+- Default „operator!=“
+    - If not defined, then
+        - Use „operator==“ (if defined; negated)
+        - Use „operator<=>“ (if defined)
+        - Use generated „operator==“ (negated)
+- `<<` Shift left (here a logical shift with UInt is the same as arithmetic shift with Int)
+- `>>` Shift right (logical shift with Uint, arithmetic shift with Int)
+- `<<<` Rotate left (circular shift left)
+- `>>>` Rotate right (circular shift right)
+  
+
+## Misc
+- Operations with carry flag  
+  (to construct Int128, Int256 etc.)
+    - c = add(a, b, inout carry)
+    - a.add(b, inout carry)
+    - d = multiplyAdd(a, b, inout c)
+    - a.multiplyAdd(b, inout c)
+    - b = shiftLeft(a, Int steps, mutable carry)
+    - a.shiftLeft(Int steps, mutable carry)
+ 
+
+- For-in loop (instead of „for (… : …)“ or „foreach“)
+    - as in Rust, Swift
+    - With range literal also used instead of
+        - „for (Int i = 0; i < 10; ++i) { … }“
+            - „for i in 1..9“
+            - „for i in 1..<10“
+            - Not recommended, but possible
+                - „for i in Range(1, 10)“
+                - „for i in Range(10, 1, 1)“
+                - „for i in Range(10..1, 1)“
+        - „for (Int i = 10; i > 0; —i) { … }“
+            - „for i in 10..1:-1“
+            - ? „for i in 10..>0:-1“
+            - „for i in (1..10).reversed()“
+            - Not recommended, but possible
+                - „for i in Range(10, 1, -1)“
+                - „for i in Range(10..1, -1)“
+                - „for i in 10 downTo 1 step 1“
+                - „for i in 10..1 by -1“
+                - „for i in 10..1 step -1“
+
+-  if 1 <= x <= 10 { … }
+    - as in Python, Julia, Cpp2 (Herb Sutter)
+ 
+    
+- Arrays
+    - Int[3] arrayOfThreeIntegers
+        - „Static array“ – fixed size, same as C/C++
+        - arrayOfThreeIntegers.size() -> 3 (realised as extension function)
+    - Int[] arrayOfIntegers
+        - „Dynamic array“ – dynamic size
+        - Translated to „Array<T>“ (normally cone::Array<T> will be used)
+        - cone::Array<Int>
+            - not called „cone::Vector<Int>“, because this could easily collide with the mathematical (numerical/geometric) Vector.
+            - (See Matrix & Vector, even if they are in other sub-namespaces.)
+        - Problem: Confusing because so similar to fixed-size arrays?
+        - Use Int* for C/C++ arrays of arbitrary size
+            - Int* array = new Int[4] array[3] = 0 array[4] = 0  // Runtime error, no bounds check
+    - Int[3, 2, 200]
+        - Multidimensional array
+        - „Int[3, 2, 200] intArray3D intArray3D[2, 1, 199] = 1“
+    - int[,,]
+        - Multidimensional dynamic array
+        - „cone::NArray<Int, 3>“
+        - or „Int[*, *, *]“?
+        - TODO Mixed forms?
+            - „Int[3, *, *]“ 
+            - „Int[3, 4, *]“
+         
+        
+- Matrix & Vector
+    - BLAS (Basic Linear Algebra Subprograms)
+    - Default datatype is Float AKA Float32, because that is fast.
+    - Default datatype is Float AKA Float64, because that is more precise.
+    - Geometry
+        - Static/fixed size
+        - For small, fixed size vectors & matrices ,
+            - as typically used in geometry (i.e. 2D, 3D, 4D).
+        - cone::geometry::Vector<T = Float, Int size>
+            - cone::geometry::Vector2<T = Float>
+            - cone::geometry::Vector3<T = Float>
+            - cone::geometry::Vector4<T = Float>
+        - cone::geometry::Matrix<T = Float, Int rows, Int columns>
+            - cone::geometry::Matrix22<T = Float>
+            - cone::geometry::Matrix33<T = Float>
+            - cone::geometry::Matrix44<T = Float>
+    - Numerics
+        - Dynamic/variable size
+        - For large, dynamically sized vectors & matrices,
+            - as typically used in numerics.
+        - cone::numerics::Vector<T = Float>
+        - cone::numerics::Matrix<T = Float>
+            - stored column-major
+        - cone::numerics::NArray<T = Float, Int dimensions>
+          
+- Image
+    - cone::Image<T = Float>
+    - Almost like cone::Matrix, but stored row-major.
+      
+- Views, Slices
+    - ArrayView
+    - VectorView
+    - MatrixView
+    - NArrayView
+ 
+      
+## Two-Pass Compiler
+- no forward declarations necessary 
+    - as in C#, Java
+- no single-pass as in C/C++
+ 
+      
+## Versioning of the Cone source code
+- Via file „.coneVersion“ „.cone_version“ in a (project) directory,
+    - similar to „.clang_format“,
+    - also possible file by file: Matrix.coneVersion (for Matrix.cone).
+- Via file extension: 
+    - „*.cone – always the latest language version (if not defined otherwise via „.coneVersion“)
+    - „*.2024.cone“ – Version from the year 2024
+    - „*.2024b.cone“ – Second version from the year 2024
+    - „*.cone2024“ – Version from the year 2024
+    - „*.cone2024b“ – Second version from the year 2024
+    - „*.cone_2024“ – Version from the year 2024
+    - „*.cone_2024b“ – Second version from the year 2024
+    - „*.c1a“
+    - „*.c1b“
+    - „*ConeA“
+        - „*.ConeB“
+         
+              
+## Fix C++ "wrong defaults"
+1. Uninitialized automatic variables.
+    - Unclear - haven't people gotten used to it?
+    - Then there should be a keyword "noinit“,
+        - at least for large arrays.
+    - Only for stack variables or also for free memory/heap?
+        - With virtual memory, this is actually "free".
+2. Integral promotions.
+    - Only allow safe ones,
+    - otherwise explicit cast necessary.
+3. Implicit narrowing conversions.
+    - Not allowed
+4. Switches should break rather than fallthrough.
+    - Keyword „fallthrough“ instead
+5. Operator precedence is complicated and wrong.
+    - If the suggestion of Sean Baxter / Circle works well, then that would be fine.
+6. Hard-to-parse declarations and the most vexing parse.
+    - „func“ but not „var“
+7. Template brackets < > are a nightmare to parse.
+    - Only if it really has to be.
+8. Forwarding parameters and std::forward are error prone.
+9. Braced initializers can choose the wrong constructor.
+    - Do without braced initializers altogether.
+    - With "func" there is now a clear distinction between function declaration and variable declaration with initialization.
+    - The classic initialization via "(...)", ultimately a function call of the constructor, fits better.
+    - Curly brackets only for initializer lists, i.e. for tuples, lists etc.
+    - Square brackets for arrays.
+10. 0 shouldn't be a null pointer constant.
+    - Not allowed
+11. this shouldn't be a pointer.
+    - Better it is a reference
+       
+        
+## Capabilities of Julia
+- „b = 2a“ as short form of „b = 2*a“
+- x ÷ y, integer divide, like x / y, truncated to an integer
+- sqrt(x), √x
+- cbrt(x), ∛x
+- !=, ≠
+- <=, ≤
+- >=, ≥
+- Operator overloading
+    - See:
+        - https://www.geeksforgeeks.org/operator-overloading-in-julia/
+        - https://github.com/JuliaLang/julia/blob/master/src/julia-parser.scm
+    - Much more operators
+        - https://stackoverflow.com/a/60321302
+    - „Precedence and associativity: When defining new operators or overloading existing ones, you can also specify their precedence and associativity, which determines the order in which they are evaluated.“
+        - That seems quite complicated to parse?!
+- Many kinds of brackets?
+    - https://stackoverflow.com/a/33357311
+    - Problem: some of the brackets are also conceivable as operators.
