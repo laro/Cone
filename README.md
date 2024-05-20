@@ -857,18 +857,18 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - If the suggestion of Sean Baxter / Circle works well, then that would be fine.
 6. Hard-to-parse declarations and the most vexing parse.
     - `func` but not `var`
-7. Template brackets < > are a nightmare to parse.
+7. Template brackets `< >` are a nightmare to parse.
     - Only if it really has to be.
 8. Forwarding parameters and std::forward are error prone.
 9. Braced initializers can choose the wrong constructor.
     - Do without braced initializers altogether.
-    - With "func" there is now a clear distinction between function declaration and variable declaration with initialization.
+    - With `func` there is now a clear distinction between function declaration and variable declaration with initialization.
     - The classic initialization via `(...)`, ultimately a function call of the constructor, fits better.
     - Curly brackets only for initializer lists, i.e. for tuples, lists etc.
     - Square brackets for arrays.
-10. 0 shouldn't be a null pointer constant.
+10. `0` shouldn't be a null pointer constant.
     - Not allowed
-11. this shouldn't be a pointer.
+11. `this` shouldn't be a pointer.
     - Better it is a reference
        
         
