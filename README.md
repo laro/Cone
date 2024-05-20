@@ -1,6 +1,6 @@
 # Cone
 **C++ with CamelCase Style**  
-This began with the desire for a standard library in the style of Qt. A language extension helps to get this on the basis of the C++ standard library.
+All this began with the desire for a standard library in the style of Qt. A language extension helps to get this on the basis of the C++ standard library.
   
 **C++ with Simplified Syntax**  
 Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with existing code must be guaranteed.
