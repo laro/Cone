@@ -691,7 +691,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - `a^x` for `pow(a, x)` (as Julia)
     - ~~or `a**x`? (as Python)~~
 - ~~Remove `++i`, `--i`, `i++`, `i--`?~~
-    - ~as Python~~
+    - ~~as Python~~
     - ~~only offer/allow `i += 1`, `i -= 1`~~
 - Default `operator==`
     - If not defined, then
@@ -714,12 +714,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
 ## Misc
 - Operations with carry flag  
   (to construct Int128, Int256 etc.)
-    - c = add(a, b, inout carry)
-    - a.add(b, inout carry)
-    - d = multiplyAdd(a, b, inout c)
-    - a.multiplyAdd(b, inout c)
-    - b = shiftLeft(a, Int steps, mutable carry)
-    - a.shiftLeft(Int steps, mutable carry)
+    - `c = add(a, b, inout carry)`
+    - `a.add(b, inout carry)`
+    - `d = multiplyAdd(a, b, inout c)`
+    - `a.multiplyAdd(b, inout c)`
+    - `b = shiftLeft(a, Int steps, mutable carry)`
+    - `a.shiftLeft(Int steps, mutable carry)`
  
 
 - For-in loop (instead of `for (… : …)` or `foreach`)
@@ -743,27 +743,34 @@ Variable declaration still simply as `Int i`, as in C/C++.
                 - `for i in 10..1 by -1`
                 - `for i in 10..1 step -1`
 
--  if 1 <= x <= 10 { … }
+-  `if 1 <= x <= 10 { … }`
     - as in Python, Julia, Cpp2 (Herb Sutter)
  
     
 - Arrays
-    - Int[3] arrayOfThreeIntegers
+    - `Int[3] arrayOfThreeIntegers`
         - „Static array“ – fixed size, same as C/C++
         - arrayOfThreeIntegers.size() -> 3 (realised as extension function)
-    - Int[] arrayOfIntegers
+    - `Int[] arrayOfIntegers`
         - „Dynamic array“ – dynamic size
-        - Translated to `Array<T>` (normally cone::Array<T> will be used)
-        - cone::Array<Int>
+        - Translated to `Array<T>` (normally `cone::Array<T>` will be used)
+        - `cone::Array<Int>`
             - not called `cone::Vector<Int>`, because this could easily collide with the mathematical (numerical/geometric) Vector.
             - (See Matrix & Vector, even if they are in other sub-namespaces.)
         - Problem: Confusing because so similar to fixed-size arrays?
-        - Use Int* for C/C++ arrays of arbitrary size
-            - Int* array = new Int[4] array[3] = 0 array[4] = 0  // Runtime error, no bounds check
-    - Int[3, 2, 200]
+        - Use `Int*` for C/C++ arrays of arbitrary size
+            - ```
+              Int* array = new Int[4]
+               array[3] = 0
+              array[4] = 0  // Runtime error, no bounds check
+              ```
+    - `Int[3, 2, 200]`
         - Multidimensional array
-        - `Int[3, 2, 200] intArray3D intArray3D[2, 1, 199] = 1`
-    - int[,,]
+        - ```
+          Int[3, 2, 200] intArray3D
+           intArray3D[2, 1, 199] = 1
+          ```
+    - `int[,,]`
         - Multidimensional dynamic array
         - `cone::NArray<Int, 3>`
         - or `Int[*, *, *]`?
@@ -774,38 +781,38 @@ Variable declaration still simply as `Int i`, as in C/C++.
         
 - Matrix & Vector
     - BLAS (Basic Linear Algebra Subprograms)
-    - Default datatype is Float AKA Float32, because that is fast.
-    - Default datatype is Float AKA Float64, because that is more precise.
+    - Default datatype is `Float` AKA `Float32`, because that is fast.
+    - ~~Default datatype is `Float` AKA `Float64`, because that is more precise.~~
     - Geometry
         - Static/fixed size
         - For small, fixed size vectors & matrices ,
             - as typically used in geometry (i.e. 2D, 3D, 4D).
-        - cone::geometry::Vector<T = Float, Int size>
-            - cone::geometry::Vector2<T = Float>
-            - cone::geometry::Vector3<T = Float>
-            - cone::geometry::Vector4<T = Float>
-        - cone::geometry::Matrix<T = Float, Int rows, Int columns>
-            - cone::geometry::Matrix22<T = Float>
-            - cone::geometry::Matrix33<T = Float>
-            - cone::geometry::Matrix44<T = Float>
+        - `cone::geometry::Vector<T = Float, Int size>`
+            - `cone::geometry::Vector2<T = Float>`
+            - `cone::geometry::Vector3<T = Float>`
+            - `cone::geometry::Vector4<T = Float>`
+        - `cone::geometry::Matrix<T = Float, Int rows, Int columns>`
+            - `cone::geometry::Matrix22<T = Float>`
+            - `cone::geometry::Matrix33<T = Float>`
+            - `cone::geometry::Matrix44<T = Float>`
     - Numerics
         - Dynamic/variable size
         - For large, dynamically sized vectors & matrices,
             - as typically used in numerics.
-        - cone::numerics::Vector<T = Float>
-        - cone::numerics::Matrix<T = Float>
+        - `cone::numerics::Vector<T = Float>`
+        - `cone::numerics::Matrix<T = Float>`
             - stored column-major
-        - cone::numerics::NArray<T = Float, Int dimensions>
+        - `cone::numerics::NArray<T = Float, Int dimensions>`
           
 - Image
-    - cone::Image<T = Float>
-    - Almost like cone::Matrix, but stored row-major.
+    - `cone::Image<T = Float>`
+    - Almost like `cone::Matrix`, but stored row-major.
       
 - Views, Slices
-    - ArrayView
-    - VectorView
-    - MatrixView
-    - NArrayView
+    - `ArrayView`
+    - `VectorView`
+    - `MatrixView`
+    - `NArrayView`
  
       
 ## Two-Pass Compiler
@@ -856,7 +863,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 9. Braced initializers can choose the wrong constructor.
     - Do without braced initializers altogether.
     - With "func" there is now a clear distinction between function declaration and variable declaration with initialization.
-    - The classic initialization via "(...)", ultimately a function call of the constructor, fits better.
+    - The classic initialization via `(...)`, ultimately a function call of the constructor, fits better.
     - Curly brackets only for initializer lists, i.e. for tuples, lists etc.
     - Square brackets for arrays.
 10. 0 shouldn't be a null pointer constant.
@@ -867,12 +874,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
         
 ## Capabilities of Julia
 - `b = 2a` as short form of `b = 2*a`
-- x ÷ y, integer divide, like x / y, truncated to an integer
-- sqrt(x), √x
-- cbrt(x), ∛x
-- !=, ≠
-- <=, ≤
-- >=, ≥
+-` x ÷ y`, integer divide, like `x / y`, truncated to an integer
+- `sqrt(x)`, `√x`
+- `cbrt(x)`, `∛x`
+- `!=`, `≠`
+- `<=`, `≤`
+- `>=`, `≥`
 - Operator overloading
     - See:
         - https://www.geeksforgeeks.org/operator-overloading-in-julia/
