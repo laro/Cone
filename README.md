@@ -44,11 +44,11 @@ When we are at it, after a quick look at Python.
         - Cone headers and modules from C++
     - Language is recognised by
         - the file extension
+            - Cone: `*.cone` `*.hone` `*.c1` `*.h1` `*.co` `*.ho`
             - C++: `*.cpp` `*.hpp` `*.cxx` `*.hxx` `*.h`
             - C: `*.c` `*.h`
                 - `*.h` is of course a problem, as the header could be C or C++ code, but can probably best be solved using path based rules.
                 - So use of `*.hpp` is recommended for C++ code.
-            - Cone: `*.cone` `*.hone` `*.c1` `*.h1` `*.co` `*.ho`
         - path based rules
             - C++ standard headers in certain directories 
         - can be set in IDE
