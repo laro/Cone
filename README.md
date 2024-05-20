@@ -208,7 +208,7 @@ When we are at it, after a quick look at Python.
                     - `for word in text.asWords()`
                     - ~~`for word in text.byWord()`~~
                 - lines
-                    - `for word in text.asLines()`
+                    - `for line in text.asLines()`
                     - ~~`for line in text.byLine()`~~
                 - sentences (needs list of abbreviations, like "e.g.", "i.e.", "o.ä.")
                     - `for sentence in text.asSentences()`
