@@ -1,9 +1,11 @@
 # Cone
 **C++ with CamelCase style**
 - This started as a standard library in the style of Qt. There are some language extension necessary to support this.
+  
 **C++ with simplified syntax**
 - Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with billions of lines of code must be guaranteed.
 Cone is a wish language which takes no account of these two points.
+
 **C++ without semicolons**
 - When we are at it, a quick look at Python can't hurt. 
 
