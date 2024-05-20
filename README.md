@@ -449,8 +449,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - `Int[] arrayOfInt`
     - `Int[3] arrayOfThreeInt`
     - `Int[3]* pointerToArrayOfThreeInt`
-    - `Int[3][]* pointerToArrayOfArrayOfThreeInt`
-    - `String*[] arrayOfPointersToString`
+    - `Int[3][]* pointerToDynamicArrayOfArrayOfThreeInt`
+    - `String*[] dynamicArrayOfPointersToString`
     - **`Float* i, j`   // i _and_ j are pointers**
         - contrary to C/C++.
 - Not allowed / syntax error is:
