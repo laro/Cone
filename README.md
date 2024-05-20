@@ -429,28 +429,6 @@ As in Python, Kotlin, Swift, JavaScript, Julia
             - ~~or `func toString (Int this) -> String` ~~
 
 
-## Automatic Templates
-- If the type of a function argument is a concept, then the function is a template.
-    - Concept `Number`:
-        - ```
-          func sq(Number x) -> Number {
-               return x * x
-           }
-          ```
-        - However, the return type could be a different type than `x` is (as long as it satisfies the concept `Number`)
-    - `func add(Number a, b) -> Number`
-        - `a`, `b` and the return type could each be a _different_ type (as long as it satisfies the concept `Number`)
-    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or `BigFloat`):
-      ```
-       func sqrt(Real x) -> Real {
-           // … a series development …
-      }
-      ```
-- Like abbreviated function templates in C++ 20, only without `auto`.
-- `template<typename T>` for cases where a common type is required.
-- `requires` for further restricting the type.
-
-
 ## Variable Declaration
 Variable declaration still simply as `Int i`, as in C/C++.
 - Or is that still not clear enough?
@@ -541,19 +519,6 @@ Variable declaration still simply as `Int i`, as in C/C++.
          is a comment */ 
       ```
 
-
-## Short Smart Pointer Syntax 
-- `Type^ instance`
-    - `T^` by default is `SharedPtr<T>`
-        - for C++/Cone,
-        - defined via type traits `default_circumflex_type`.
-    - Possible to redefine for interoperability with other languages:
-        - Objective-C/Swift: Use their reference counting mechanism
-        - C#/Java: Use garbage collected memory
-    - ~~`T^^` by default is `WeakPtr<T>`~~
-        - ~~defined via type traits `default_circumflex_circumflex_type`.~~
-        - ~~`SharedPtr<SharedPtr<T>>` just doesn't work like that, doesn’t really make sense anyway.~~
-        - Do we really need a short expression for `WeakPtr<T>`?
      
 ## Literals
 - `true`, `false` are Bool
@@ -594,7 +559,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - because `Bool` is _not_ an `Int`
         - because a `Bool` should not be accidentally interpreted as an `Int`
         - cast if necessary: `Int a = Int(True)`
-    - `Bool a = 1`      // Error,
+    - ~~`Bool a = 1`~~      // Error,
         - because `Int` is not a `Bool`
         - because an `Int` should not be accidentally interpreted as a `Bool`
         - cast if necessary: `Bool a = Bool(1)` 
@@ -661,3 +626,39 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - I like `...` to be reserved for ellipsis in human language like comments.
 - Rules for user defined literals
     - as in C++.
+
+
+## Short Smart Pointer Syntax 
+- `Type^ instance`
+    - `T^` by default is `SharedPtr<T>`
+        - for C++/Cone,
+        - defined via type traits `default_circumflex_type`.
+    - Possible to redefine for interoperability with other languages:
+        - Objective-C/Swift: Use their reference counting mechanism
+        - C#/Java: Use garbage collected memory
+    - ~~`T^^` by default is `WeakPtr<T>`~~
+        - ~~defined via type traits `default_circumflex_circumflex_type`.~~
+        - ~~`SharedPtr<SharedPtr<T>>` just doesn't work like that, doesn’t really make sense anyway.~~
+        - Do we really need a short expression for `WeakPtr<T>`?
+
+
+## Automatic Templates
+- If the type of a function argument is a concept, then the function is a template.
+    - Concept `Number`:
+        - ```
+          func sq(Number x) -> Number {
+               return x * x
+           }
+          ```
+        - However, the return type could be a different type than `x` is (as long as it satisfies the concept `Number`)
+    - `func add(Number a, b) -> Number`
+        - `a`, `b` and the return type could each be a _different_ type (as long as it satisfies the concept `Number`)
+    - Concept `Real` (real numbers as `Float16`/`32`/`64`/`128` or `BigFloat`):
+      ```
+       func sqrt(Real x) -> Real {
+           // … a series development …
+      }
+      ```
+- Like abbreviated function templates in C++ 20, only without `auto`.
+- `template<typename T>` for cases where a common type is required.
+- `requires` for further restricting the type.
