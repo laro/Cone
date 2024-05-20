@@ -10,6 +10,7 @@ Cone is a wish language which takes no account of these two points.
 - When we are at it, a quick look at Python can't hurt. 
 
 
+
 - **Cone**, COne, cOne, c1, C1,  
   Pronounced "see one"
 - "Improved" C++
