@@ -1,7 +1,10 @@
 # Cone
 C++ with CamelCase style  
-C++ without semicolons  
 C++ with simplified syntax
+C++ without semicolons  
+
+Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with billions of lines of code must be guaranteed.
+Cone is my wish language which takes no account of these two points, in my preferred style.
 
 - **Cone**, COne, cOne, c1, C1,  
   Pronounced "see one"
