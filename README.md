@@ -1,10 +1,10 @@
 # Cone
 **C++ with CamelCase Style**  
-This started as a standard library in the style of Qt. There are some language extension necessary to fully support this.
+This began with the desire for a standard library in the style of Qt. A language extension helps to get this on the basis of the C++ standard library.
   
 **C++ with Simplified Syntax**  
-Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with billions of lines of code must be guaranteed.
-Cone is a wish language which takes no account of these two points.
+Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with existing code must be guaranteed.
+Cone is a wish language, and we do not take these two points into account.
 
 **C++ without Semicolons**  
 When we are at it, after a quick look at Python. 
@@ -26,12 +26,12 @@ When we are at it, after a quick look at Python.
             - Objective-C -> Swift
             - JavaScript -> TypeScrtipt
     - Uses the same compiler backend as C++ (clang, gcc, …)
-        - with an own / a new compiler frontend (or a precompiler)
-    - So _no_ garbage collection 
-        - Instead use
-            - RAII (Resource Acquisition is Initialization)
-                - RROD (Resource Release on Object Destruction)
-            - `SharedPtr<T>` etc.
+        - with an own / a new compiler frontend (or a precompiler).
+    - So _no_ garbage collection,  
+      Instead use
+        - RAII (Resource Acquisition is Initialization)
+            - RROD (Resource Release on Object Destruction)
+        - `SharedPtr<T>` etc.
 
 
 - **Compatible to C++**, C and maybe other languages of this "language family", even future ones,
