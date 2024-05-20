@@ -34,7 +34,7 @@ When we are at it, a quick look at Python can't hurt.
             - `SharedPtr<T>` etc.
 
 
-- **Compatible to C++**, C and maybe other languages of this "language family"
+- **Compatible to C++**, C and maybe other languages of this "language family", even future ones,
     - as with
         - Java: Kotlin, Scala, Groovy, Clojure, Fantom, Ceylon, Jython, JRuby …
         - C#: C++/CLI, Visual Basic .NET, F#, A# (Ada), IronPython, IronRuby …
