@@ -13,7 +13,7 @@ When we are at it, after a quick look at Python.
 ## Introduction
 - **Cone**, COne, cOne, c1, C1,  
   Pronounced "see one"
-    - The names "D", "C2", and "Cpp2" were already taken ¯\\_(ツ)_/¯.
+    - The names "D", "C2", and "Cpp2" were already taken `¯\_(ツ)_/¯`.
     - "C"-names are trendy, see Carbon and Circle.  
       Even "C#" is referencing C, despite beeing more like "MS Java".
 - "Improved" C++
