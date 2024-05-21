@@ -65,16 +65,7 @@ When we are at it, after a quick look at Python.
     - Style similar to Kotlin, Swift
     - Cone standard library (`cone::` instead of `std::`)
         - `cone::String` instead of `std::string`
-        - `vector` -> `Vector`
-        - `map` -> `Map`
-            - `Dictionary` as typedef with deprecation warning, as a hint for C# programmers.
-        - `forward_list` -> `ForwardList`
-        - `unordered_map` -> `UnorderedMap`
-        - `value_type` -> `ValueType`
-        - Maybe some exceptions/variations:
-            - `stringstream` -> `Stringstream` or `StringStream`?
-                - `Textstream` or `TextStream`, `Bytestream` or `ByteStream`, …
-            - `multimap` -> `Multimap` or `MultiMap`?
+        - `Array`, `Map`, `ForwardList`, `UnorderedMap`, `ValueType`
     - Arithmetic types
         - `Bool`
         - `Int`
@@ -296,8 +287,20 @@ When we are at it, after a quick look at Python.
 
 
 ## Namespace `cone`
-Standard namespace is `cone`~~, `c1`~~ (instead of `std`)
-- With Cone version of every standard class/concept (i.e. uppercase class names and camelCase function and variable names)
+Cone standard library in namespace `cone`~~, `c1`~~ (instead of `std`).
+- With Cone version of every standard class/concept (i.e. CamelCase class names and camelCase function and variable names)
+    - `cone::String` instead of `std::string`
+    - `Map` instead of `map`
+        - `Dictionary` as typedef with deprecation warning, as a hint for C# programmers.
+    - `ForwardList` instead of `forward_list`
+    - `UnorderedMap` instead of `unordered_map`
+    - `ValueType` instead of `value_type`
+    - Maybe some exceptions/variations:
+        - `Array` instead of `vector`
+        - `Stringstream` or `StringStream` instead of `stringstream`?
+            - `Textstream` or `TextStream`, `Bytestream` or `ByteStream`, …
+        - `Multimap` or `MultiMap` instead of `multimap`?
+- Shallow wrapper,
     - e.g. `cone::String : protected std::string`
 - "**Alias**" for 
     - member variables  
