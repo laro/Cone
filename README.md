@@ -840,6 +840,12 @@ Variable declaration still simply as `Int i`, as in C/C++.
          
               
 ## Fix C++ "wrong defaults"
+[Sean Baxter](https://x.com/seanbax), creator of [Circle](https://github.com/seanbaxter/circle), [writes about C++'s wrong defaults](https://github.com/seanbaxter/circle/blob/master/new-circle/README.md#to-err-is-human-to-fix-divine):
+> C++ has a number of "wrong defaults," design decisions either inherited from C or specific to C++ which many programmers consider mistakes.
+> They may be counter-intuitive, go against expected practice in other languages, leave data in undefined states, or generally be prone to misuse.
+
+I am not familiar with all these issues, but in a new language we certainly coud fix a lot of it.
+
 1. Uninitialized automatic variables.
     - Unclear - haven't people gotten used to it?
     - Then there should be a keyword `noinit`,
@@ -858,7 +864,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
 6. Hard-to-parse declarations and the most vexing parse.
     - `func` but not `var`
 7. Template brackets `< >` are a nightmare to parse.
-    - Only if it really has to be.
+    - I would not like to change this.
+    - Only if it _really_ has to be.
 8. Forwarding parameters and std::forward are error prone.
 9. Braced initializers can choose the wrong constructor.
     - Do without braced initializers altogether.
@@ -867,9 +874,9 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - Curly brackets only for initializer lists, i.e. for tuples, lists etc.
     - Square brackets for arrays.
 10. `0` shouldn't be a null pointer constant.
-    - Not allowed
+    - Not allowed, use `NullPtr`.
 11. `this` shouldn't be a pointer.
-    - Better it is a reference
+    - Better it is a reference.
        
         
 ## Capabilities of Julia
