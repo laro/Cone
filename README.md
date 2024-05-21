@@ -104,7 +104,7 @@ When we are at it, after a quick look at Python.
 - `Int`, `UInt`
     - `Int` == `Int64`
         - `Int` == `Int32` on 32 bit systems only (i.e. old/small platforms)
-            - therefore it is _not_ necessary to have ~~`Size` or `SSize`~~
+            - therefore it is _not_ necessary to have ~~`Size`~~ or ~~`SSize`~~
     - `Int8`, `Int16`, `Int32`, `Int64`, maybe `Int128`, `Int256`
         - like `int32_t` or `qint32`, but no prefix "q" nor postfix "_t", and in CamelCase 
     - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`, `UInt256`
