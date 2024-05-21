@@ -525,10 +525,10 @@ Variable declaration still simply as `Int i`, as in C/C++.
 
      
 ## Literals
-- `true`, `false` are Bool
-    - or **`True`**, **`False`**?
-        - As in Python,
-        - as they are constants.  
+- `True`, `False` are Bool,
+    - as in Python,
+    - as they are constants.  
+    - ~~`true`, `false` are Bool~~
 - `123` is an integer literal of arbitrary precision
     - Can be converted to any integer type it fits into (signed and unsigned)
         - `Int8 a = 1`    // Works because `1` fits into `Int8`
@@ -575,7 +575,10 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - `1.0` is interpreted as `Float`
         - for type inferring, parameter overloading and template matching.
     - `1.0f` is always `Float32`
-    - `1.0d` is always `Float64` 
+    - `1.0d` is always `Float64`
+- `Null` is the null pointer
+    - ~~or `NullPtr`?~~
+    - explicit cast necessary to convert any pointer to Int
 - `"Text"` is a `StringView`
     - Pointer to first character and pointer after the last character
         - in C++/Cone tradition, but length would also work, of course
