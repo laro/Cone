@@ -762,17 +762,17 @@ Variable declaration still simply as `Int i`, as in C/C++.
             - not called `cone::Vector<Int>`, because this could easily collide with the mathematical (numerical/geometric) Vector.
             - (See Matrix & Vector, even if they are in other sub-namespaces.)
         - Problem: Confusing because so similar to fixed-size arrays?
-        - Use `Int*` for C/C++ arrays of arbitrary size
-            - ```
-              Int* array = new Int[4]
-              array[3] = 0
-              array[4] = 0  // Runtime error, no bounds check
-              ```
-    - `Int[3, 2, 200]`
-        - Multidimensional array
-        - ```
+        - Use `Int*` for C/C++ arrays of arbitrary size  
+          ```
+          Int* array = new Int[4]
+          array[3] = 0
+          array[4] = 0  // Runtime error, no static bounds check
+          ```
+    - `Int[3,2,200]`
+        - Multidimensional array  
+          ```
           Int[3,2,200] intArray3D
-           intArray3D[2, 1, 199] = 1
+          intArray3D[2, 1, 199] = 1
           ```
     - `int[,,]`
         - Multidimensional dynamic array
