@@ -567,6 +567,9 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - because `Int` is not a `Bool`
         - because an `Int` should not be accidentally interpreted as a `Bool`
         - cast if necessary: `Bool a = Bool(1)` 
+- `Null` is the null pointer
+    - ~~or `NullPtr`?~~
+    - explicit cast necessary to convert any pointer to Int
 - `1.0` is a floating point literal of arbitrary precision
     - Can be converted to any float type into which it fits exactly
         - otherwise explicit cast necessary: `Float16(3.1415926)`
@@ -576,9 +579,6 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - for type inferring, parameter overloading and template matching.
     - `1.0f` is always `Float32`
     - `1.0d` is always `Float64`
-- `Null` is the null pointer
-    - ~~or `NullPtr`?~~
-    - explicit cast necessary to convert any pointer to Int
 - `"Text"` is a `StringView`
     - Pointer to first character and pointer after the last character
         - in C++/Cone tradition, but length would also work, of course
