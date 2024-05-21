@@ -35,7 +35,7 @@ When we are at it, after a quick look at Python.
       instead you use
         - **RAII** (Resource Acquisition is Initialization)
             - **RROD** (Resource Release on Object Destruction)
-        - `SharedPtr<T>` etc.
+        - `SharedPtr<T>` / `T^` etc.
 
 
 - **Compatible to C++**, C and maybe other languages of this "language family", even future ones,
