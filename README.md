@@ -18,7 +18,7 @@ When we are at it, after a quick look at Python.
     - Even C# is referencing C, despite beeing more like "MS Java" (BTW I like C# and Java).
 - "Improved" C++
     - with a **simplified** syntax,
-    - in the _style_ of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
+    - in the **style of Qt**, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter "expression".
     - C++ Successor Language
