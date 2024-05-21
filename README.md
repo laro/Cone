@@ -891,7 +891,7 @@ I am not familiar with all these issues, but in a new language we certainly coud
     - Curly brackets only for initializer lists, i.e. for tuples, lists etc.
     - Square brackets for arrays.
 10. `0` shouldn't be a null pointer constant.
-    - Not allowed, use `NullPtr`.
+    - Not allowed, use `Null`.
 11. `this` shouldn't be a pointer.
     - Better it is a reference.
        
