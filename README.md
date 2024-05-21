@@ -13,16 +13,16 @@ When we are at it, after a quick look at Python.
 ## Introduction
 - **Cone**, COne, cOne, c1, C1,  
   Pronounced "see one"
-    - The names "D", "C2", and "Cpp2" were already taken `¯\_(ツ)_/¯`.
-    - "C"-names are trendy, see Carbon and Circle.
-    - Even "C#" is referencing C, despite beeing more like "MS Java".
+    - The names "[D](https://dlang.org/)", "[C2](http://c2lang.org/)", and "[Cpp2](https://github.com/hsutter/cppfront#cppfront)" were already taken `¯\_(ツ)_/¯`.
+    - "C"-names are trendy, see [Carbon](https://github.com/carbon-language/carbon-lang) and [Circle](https://github.com/seanbaxter/circle).
+    - Even "C#" is referencing C, despite beeing more like "MS Java" (BTW I like C# and Java).
 - "Improved" C++
     - with a **simplified** syntax,
     - in the _style_ of Qt, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter "expression".
     - C++ Successor Language
-        - like CppFront/Cpp2, Carbon or Circle
+        - like [CppFront/Cpp2](https://github.com/hsutter/cppfront#cppfront), [Carbon](https://github.com/carbon-language/carbon-lang) or [Circle](https://github.com/seanbaxter/circle)
         - Similar to
             - C -> C++
             - Java -> Kotlin
