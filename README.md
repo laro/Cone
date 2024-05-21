@@ -268,7 +268,7 @@ When we are at it, after a quick look at Python.
                 - 0x61, 0x62, 0x63
                 - 'a', 'b', 'c'
                 - Compilation error, if string contains non-ASCII characters.
-                - `same for for char in ASCIIString("abc")`
+                - same for `for char in ASCIIString("abc")`
                     - but Exception thrown, if string contains non-ASCII characters.
         - Implicitly convertable to `String`==`UTF8String`.
             - Very fast conversion, as all characters have the same binary representation.
@@ -278,7 +278,7 @@ When we are at it, after a quick look at Python.
                 - 0xe4, 0x62, 0x63
                 - 'ä', 'b', 'c'
                 - Compilation error, if string contains non-Latin-1 characters.
-                - `same for for char in ASCIIString("abc")`
+                - same for `for char in ASCIIString("abc")`
                     - but Exception thrown, if string contains non-Latin1 characters.
         - Explicitly convertable to `String`==`UTF8String`.
             - Not so fast conversion as with ASCIIString, as typically some characters need to be translated into two UTF-8 code units.
