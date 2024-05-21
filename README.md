@@ -22,7 +22,8 @@ When we are at it, after a quick look at Python.
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter "expression".
     - C++ Successor Language
-        - like [CppFront/Cpp2](https://github.com/hsutter/cppfront#cppfront), [Carbon](https://github.com/carbon-language/carbon-lang) or [Circle](https://github.com/seanbaxter/circle)
+        - like [Carbon](https://github.com/carbon-language/carbon-lang) or [Circle](https://github.com/seanbaxter/circle)
+            -  [CppFront/Cpp2](https://github.com/hsutter/cppfront#cppfront) seems to be a fully backwards compatible syntax, so it is a bit differently, 
         - Similar to
             - C -> C++
             - Java -> Kotlin
