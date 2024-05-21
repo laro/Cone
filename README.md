@@ -95,7 +95,7 @@ When we are at it, after a quick look at Python.
 
 - Namespaces fully lowercase 
     - Standard namespace `cone`~~, `c1` ~~
-    - I am not sure about this, I don't think it's important. But this helps to differentiate between classes and namepsaces.
+    - I am not sure about this, I don't think it's important. But this helps to differentiate between classes and namespaces.
 
 
 ## Arithmetic Types
