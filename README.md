@@ -781,8 +781,6 @@ Variable declaration still simply as `Int i`, as in C/C++.
         
 - Matrix & Vector
     - BLAS (Basic Linear Algebra Subprograms)
-    - Default datatype is `Float` AKA `Float32`, because that is fast.
-    - ~~Default datatype is `Float` AKA `Float64`, because that is more precise.~~
     - Geometry
         - Static/fixed size
         - For small, fixed size vectors & matrices ,
