@@ -100,6 +100,20 @@ When we are at it, after a quick look at Python.
         - like `int32_t` or `qint32`, but no prefix "q" nor postfix "_t", and in CamelCase 
     - `UInt8`, `UInt16`, `UInt32`, `UInt64`, maybe `UInt128`, `UInt256`
         - e.g. `UInt256` for SHA256
+    - `cone::safe::Int`
+        - Like `cone::Int`, but with **overflow check** for all operations,
+            - may throw OverflowException.
+        - `safe::Int8`/`Int16`/`Int32`/`Int64`
+        - `safe::Uint`
+            - `safe::UInt8`/`UInt16`/`UInt32`/`UInt64`
+    - `cone::saturating::Int`
+        - Like `cone::Int`, but with **saturation** for all operations.
+            - Limit to maximum, no wrap around.
+            - Typically using SIMD (as those „media/DSP instructions“ do support saturation natively).
+        - see https://en.wikipedia.org/wiki/Saturation_arithmetic 
+        - `saturating::Int8`/`Int16`/`Int32`/`Int64`
+        - `saturating::Uint`
+            - `saturating::UInt8`/`UInt16`/`UInt32`/`UInt64`
 - `Byte` == `UInt8` (Alias, i.e. the same type for parameter overloading)
 - `BigInt` – Arbitrary Precision Integer
     - for cryptography, maybe computer algebra, numerics
@@ -693,25 +707,6 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - `template<typename T>` for cases where a common type is required.
 - `requires` for further restricting the type.
 
-
-## Safe Int
-- `cone::safe::Int`
-    - Like `cone::Int`, but with **overflow check** for all operations,
-        - may throw OverflowException.
-    - `safe::Int8`/`Int16`/`Int32`/`Int64`
-    - `safe::Uint`
-        - `safe::UInt8`/`UInt16`/`UInt32`/`UInt64`
-     
-
-## Saturating
-- `cone::saturating::Int`
-    - Like `cone::Int`, but with **saturation** for all operations.
-        - Limit to maximum, no wrap around.
-        - Typically using SIMD (as those „media/DSP instructions“ do support saturation natively).
-    - see https://en.wikipedia.org/wiki/Saturation_arithmetic 
-    - `saturating::Int8`/`Int16`/`Int32`/`Int64`
-    - `saturating::Uint`
-        - `saturating::UInt8`/`UInt16`/`UInt32`/`UInt64`
           
 ## Operators
 - `a^x` for `pow(a, x)` (as Julia)
