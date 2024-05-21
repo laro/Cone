@@ -130,10 +130,10 @@ When we are at it, after a quick look at Python.
             - Warning, if the integer literal cannot be reproduced exactly as `Float32`/`64`
         - `anInt * aFloat` is possible
             - Warning that the integer variable may not be reproduced exactly as `Float32`/`64`, i.e. with
-                - `aFloat32 * anInt32/64    // Warning`
-                - `aFloat32 * anInt8/16     // No warning`
-                - `aFloat64 * anInt64       // Warning`
-                - `aFloat64 * anInt8/16/32  // No warning`
+                - `aFloat32 * anInt8/16`     // No warning
+                - `aFloat32 * anInt32/64`    // Warning
+                - `aFloat64 * anInt8/16/32`  // No warning
+                - `aFloat64 * anInt64`       // Warning
     - `BigFloat` for arbitrary precision float,
         - see [GMP](https://gmplib.org)
         - But where do algorithms stop whose results cannot be represented precisely?
