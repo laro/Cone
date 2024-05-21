@@ -138,10 +138,11 @@ When we are at it, after a quick look at Python.
                 - `aFloat64 * anInt16` // OK
                 - `aFloat64 * anInt32` // OK
                 - `aFloat64 * anInt64` // Warning
-    - `BigFloat` for arbitrary precision float,
-        - see [GMP](https://gmplib.org)
-        - But where do algorithms stop whose results cannot be represented precisely?
-            - For example: `1.0 / 3.0`
+    - `BigFloat<>` for arbitrary precision float,
+        - see [GMP](https://gmplib.org), [MPFR](https://www.mpfr.org)
+        - The precision is arbitrary but fixed, either
+          - statically, i.e. at compile time, as part of the BigFloat type, or
+          - dynamically, i.e. at runtime, as property of a BigFloat variable.
 
 
 ## Signed Size
