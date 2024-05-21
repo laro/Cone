@@ -732,8 +732,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - `for i in 1..<10`
         - Not recommended, but possible
             - `for i in Range(1, 10)`
-            - `for i in Range(10, 1, 1)`
-            - `for i in Range(10..1, 1)`
+            - `for i in Range(1, 10, 1)`
         - Instead of `for (Int i = 10; i > 0; --i) { … }` use
             - `for i in 10..1:-1`
             - ? `for i in 10..>0:-1`
