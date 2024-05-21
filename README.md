@@ -64,7 +64,7 @@ When we are at it, after a quick look at Python.
 - All types and **classes in upper CamelCase** (even the standard/STL classes).
     - Style similar to Kotlin, Swift
     - Cone standard library (`cone::` instead of `std::`)
-        - `std::string` -> `cone::String`
+        - `cone::String` instead of `std::string`
         - `vector` -> `Vector`
         - `map` -> `Map`
             - `Dictionary` as typedef with deprecation warning, as a hint for C# programmers.
