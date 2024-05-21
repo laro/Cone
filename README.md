@@ -873,6 +873,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
        
         
 ## Capabilities of Julia
+[Julia](https://julialang.org/) has very strong math support. Some of its features should be easy to copy.
 - `b = 2a` as short form of `b = 2*a`
 - `x ÷ y`, integer divide, like `x / y`, truncated to an integer
 - `sqrt(x)`, `√x`
