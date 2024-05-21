@@ -479,7 +479,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
            if obj is String {
                // "obj" is automatically cast to "String" in this branch
                return obj.length
-          }
+           }
            // "obj" is still a "Type" outside of the type-checked branch
            return 0
       }
@@ -494,7 +494,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
       ```
     - ```
       func getStringLength(Type obj) -> Int {
-           // "obj" is automatically cast to "String" on the right-hand side of "and"
+          // "obj" is automatically cast to "String" on the right-hand side of "and"
           if obj is String  and  obj.length > 0 {
               return obj.length
           }
@@ -519,7 +519,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - Block comments can be _nested_
     - ```
       /* This
-       /* (and this) */
+      /* (and this) */
          is a comment */ 
       ```
 
