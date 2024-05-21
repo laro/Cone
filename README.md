@@ -728,9 +728,11 @@ Variable declaration still simply as `Int i`, as in C/C++.
 - For-in loop (instead of `for (… : …)` or `foreach`)
     - as in Rust, Swift
     - With range literal also used instead of `for (Int i = 0; i < 10; ++i) { … }`
-        - `for i in 1..9`
+        - `for i in 1..10`
+            - translates to `for i in Range(1, 10)`
         - `for i in 1..<10`
-        - Not recommended, but possible
+            - translates to `for i in RangeExclusiveEnd(1, 10)`
+        - Not recommended, but possible to write
             - `for i in Range(1, 10)`
             - `for i in Range(1, 10, 1)`
         - Instead of `for (Int i = 10; i > 0; --i) { … }` use
