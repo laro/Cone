@@ -695,16 +695,16 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - ~~only offer/allow `i += 1`, `i -= 1`~~
 - Default `operator==`
     - If not defined, then
-        - use negated `operator!=` (if defined)
-        - use `operator<=>` (if defined)
-        - Elementwise comparison with `==`
+        - use negated `operator!=` (if defined), or
+        - use `operator<=>` (if defined), or
+        - use elementwise comparison with `==`
             - Only possible if all elements themselves offer the `operator==`.
             - Optimization for simple types: Byte-by-byte comparison.
 - Default `operator!=`
     - If not defined, then
-        - Use negated `operator==` (if defined)
-        - Use `operator<=>` (if defined)
-        - Use generated `operator==` (negated)
+        - use negated `operator==` (if defined), or
+        - use `operator<=>` (if defined), or
+        - use negated generated `operator==`.
 - `<<` Shift left (here a logical shift with UInt is the same as arithmetic shift with Int)
 - `>>` Shift right (logical shift with Uint, arithmetic shift with Int)
 - `<<<` Rotate left (circular shift left)
