@@ -617,11 +617,11 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - e.g. for `Tuple`
 - ```
   {
-       "Key1": "Value1"
-       "Key2": "Value2"
+      "Key1": "Value1"
+      "Key2": "Value2"
       "Key3": "Value3"
-       "Key4": "Value4"
-   }
+      "Key4": "Value4"
+  }
   ```
     - is a `Map<String,String>`
 - Range literals `1..10` and `1..<10`
