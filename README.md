@@ -252,26 +252,35 @@ When we are at it, after a quick look at Python.
         - `toUpper(Sting)` -> `String`
         - `toLower(Sting)` -> `String`
     - Sorting
-- `ASCIIString`, a string containing only ASCII characters.
-    - Iteration over an `ASCIIString` or `ASCIIStringView` by `Char`==`Char8`==`Byte`
-        - `for char in "abc"ascii`
-            - 0x61, 0x62, 0x63
-            - 'a', 'b', 'c'
-            - Compilation error, if string contains non-ASCII characters.
-            - `same for for char in ASCIIString("abc")`
-                - but Exception thrown, if string contains non-ASCII characters.
-    - Implicitly convertable to `String`==`UTF8String`.
-        - Very fast conversion, as all characters have the same binary representation.
-- `Latin1String`, a string containing only Latin-1 (ISO 8859-1) characters.
-    - Iteration over an `Latin1String` or `Latin1StringView` by `Char`==`Char8`==`Byte`
-        - `for char in "äbc"latin1`
-            - 0xe4, 0x62, 0x63
-            - 'ä', 'b', 'c'
-            - Compilation error, if string contains non-Latin-1 characters.
-            - `same for for char in ASCIIString("abc")`
-                - but Exception thrown, if string contains non-Latin1 characters.
-    - Explicitly convertable to `String`==`UTF8String`.
-        - Not so fast conversion as with ASCIIString, as typically some characters need to be translated into two UTF-8 code units.
+- `SingleByteString` to represent the classical strings consisting of one-byte characters,
+    - like
+        - ASCII
+        - Latin-1
+        - ANSI (mostly identical to Latin-1)
+        - almost every one of the "code pages"
+    - Encoding is not defined.
+        - The user has to take care of this,
+        - or a subclass with known encoding has to be used (`ASCIIString`, `Latin1String`). 
+    - `ASCIIString`, a string containing only ASCII characters.
+        - Iteration over an `ASCIIString` or `ASCIIStringView` by `Char`==`Char8`==`Byte`
+            - `for char in "abc"ascii`
+                - 0x61, 0x62, 0x63
+                - 'a', 'b', 'c'
+                - Compilation error, if string contains non-ASCII characters.
+                - `same for for char in ASCIIString("abc")`
+                    - but Exception thrown, if string contains non-ASCII characters.
+        - Implicitly convertable to `String`==`UTF8String`.
+            - Very fast conversion, as all characters have the same binary representation.
+    - `Latin1String`, a string containing only Latin-1 (ISO 8859-1) characters.
+        - Iteration over an `Latin1String` or `Latin1StringView` by `Char`==`Char8`==`Byte`
+            - `for char in "äbc"latin1`
+                - 0xe4, 0x62, 0x63
+                - 'ä', 'b', 'c'
+                - Compilation error, if string contains non-Latin-1 characters.
+                - `same for for char in ASCIIString("abc")`
+                    - but Exception thrown, if string contains non-Latin1 characters.
+        - Explicitly convertable to `String`==`UTF8String`.
+            - Not so fast conversion as with ASCIIString, as typically some characters need to be translated into two UTF-8 code units.
 - `Char8`, `Char16`, `Char32`
     - are like `UInt8`, `UInt16`, `UInt32`,
     - but considered as _different_ types for parameter overloading.
