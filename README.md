@@ -470,7 +470,7 @@ As in Python, Kotlin, Swift, JavaScript, Julia
 
 ## Variable Declaration
 Variable declaration still simply as `Int i`, as in C/C++.
-- Or is having `func` for function declaration still not clear enough?
+- Or is having `func` for function declaration, but not `var` for variable declaration, still not clear enough?
     - Could be problematic in connection with omitting the trailing semicolons,
     - Swift, Kotlin and Circle always start variable declarations with `var`.
 - Not
