@@ -588,8 +588,8 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - ```
       """
       First line
-       Second line
-       """
+      Second line
+      """
       ```
     - Removes indentation as in the last line
     - Removes first newline
