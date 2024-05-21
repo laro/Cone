@@ -175,22 +175,56 @@ When we are at it, after a quick look at Python.
 
 
 ## String, Char & CodePoint
-- `cone::String` with UTF-8 support
-    - _Basic/standard_ unicode support
-        - Iteration over:
-            - code units (i.e. Bytes with UTF-8)
-                - `for codeUnit in text.asArray()`
-                - `for codeUnit in text.asCodeUnits()`?
-                - ~~`for codeUnit in text.byCodeUnit()`?~~
-                - ~~`for codeUnit in text.byChar()`?~~
-            - code points (always `UInt32`, with UTF-8, UTF-16, and UTF-32)
-                - `for codePoint in text.asCodePoints()`
-                - ~~`for codePoint in text.byCodePoint()`?~~
-            - grapheme clusters (i.e. may consist of multiple code points, default form of iteration, using `StringView`)
-                - for graphemeCluster in `abc 🥸` (this is the default type of iteration)
+- `cone::String` with
+    - _basic/standard_ unicode support.
+        - Iteration over a `String` or `StringView` by:
+            - **grapheme clusters**
+                - represented by `StringView`.
+                - This is the _default form of iteration_ over a `String` or `StringView`
+                - A grapheme cluster may consist of multiple code points.
+                - `for graphemeCluster in "abc 🥸👮🏻"`
+                    - "a", "b", "c", " ", "🥸", "👮🏻"
+                    - "\x61", "\x62", "\x63", "\x20", "\xf0\x9f\xa5\xb8", "\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb"
+                - A bit slow, as it has to find grapheme cluster boundaries.
+                - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-cluster-based iteration. But when you do, this probably is the correct way. 
                 - additional/alternative names?
                     - `for graphemeCluster in text.asGraphemeClusters()`?
                     - ~~`for graphemeCluster in text.byGraphemeCluster()`?~~
+            - **code points**
+                - represented by `UInt32`,
+                    - independent of the encoding (so, the same for UTF-8, UTF-16, and UTF-32 strings).
+                    - Called "auto decoding" in D.
+                    - ~~`CodePoint` == `UInt32`~~
+                        - ~~No distinct type for code points necessary, or would it be useful?~~
+                - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
+                    - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
+                - ~~`for codePoint in text.byCodePoint()`?~~
+                - A bit faster than iteration over grapheme clusters, but still slow, as it has to find code point boundaries in UTF-8/16 strings.
+                - Fast with UTF-32, **but** even with UTF-32 not all grapheme clusters fit into a single code point,
+                    - so not:
+                        - emoji with modifier characters like skin tone or variation selector,
+                        - diacritical characters (äöü…, depending on the normal form chosen),
+                        - surely some more …
+                    - Often slower than UTF-8, due to its size (cache, memory bandwidth).
+            - **code units**
+                - represented by
+                    - `Char`==`Char8`==`Byte` for `UTF8String`==`String`
+                    - `Char16` with `UTF16String`
+                    - `Char32` with `UTF32String`
+                - `for char8 in "abc 🥸👮🏻".asArray()`
+                    - 0x61, 0x62, 0x63, 0x20,  &nbsp;  0xf0, 0x9f, 0xa5, 0xb8,  &nbsp;  0xf0, 0x9f, 0x91, 0xae, 0xf0, 0x9f, 0x8f, 0xbb
+                    - same for
+                        - `for codeUnit in "abc 🥸👮🏻"utf8.asArray()`
+                        - `for codeUnit in UTF8String("abc 🥸👮🏻").asArray()`
+                        - ? `for codeUnit in "abc 🥸👮🏻".asCodeUnits()`
+                        - ~~`for codeUnit in text.byCodeUnit()`?~~
+                        - ~~`for codeUnit in text.byChar()`?~~
+                - `for char16 in "abc 🥸👮🏻"utf16.asArray()`
+                    - 0x0061, 0x0062, 0x0063, 0x0020,  &nbsp;  0xD83E, 0xDD78,  &nbsp;  0xD83D, 0xDC6E, 0xD83C, 0xDFFB
+                    - same for `for char16 in UTF16String("abc 🥸👮🏻").asArray()`
+                - `for char32 in "abc 🥸👮🏻"`**`utf32`**`.asArray()`
+                    - 0x00000061, 0x00000062, 0x00000063, 0x00000020,  &nbsp;  0x0001F978,  &nbsp;  0x0001F46E , 0x0001F3FB
+                    - same for `for char32 in UTF32String("abc 🥸👮🏻").asArray()`
     - Advanced support based on [ICU](https://unicode-org.github.io/icu/userguide/icu4c/) ("International Components for Unicode", "ICU4C").
         - "The ICU libraries provide support for:
             - The latest version of the Unicode standard
@@ -218,58 +252,26 @@ When we are at it, after a quick look at Python.
         - `toUpper(Sting)` -> `String`
         - `toLower(Sting)` -> `String`
     - Sorting
-- `StringView`
-    - to iterate over all grapheme clusters (i.e. may consist of multiple code points) of a string
-        - `for graphemeCluster in "abc 🥸👮🏻"`
-            - "a", "b", "c", " ", "🥸", "👮🏻"
-            - "\x61", "\x62", "\x63", "\x20", "\xf0\x9f\xa5\xb8", "\xf0\x9f\x91\xae\xf0\x9f\x8f\xbb"
-    - A bit slow, as it has to find grapheme cluster boundaries.
-    - It is recommended to mostly use the standard functions for string manipulation anyway, you seldomly need grapheme-cluster-based iteration. But when you do, this probably is the correct way. 
-- `UInt32`
-    - to iterate over all code points of a string,
-        - `for codePoint in "abc 🥸👮🏻".asCodePoints()`
-        - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E, 0x0001F3FB 
-    - Independent of the encoding (so, the same for UTF-8/16/32),
-        - called "auto decoding" in D.
-    - ~~`CodePoint` == `UInt32`~~
-        - ~~No distinct type for code points necessary, or would it be useful?~~
-    - A bit faster, but still slow, as it has to find code point boundaries in UTF-8/16 strings.
-    - Fast with UTF-32, **but** even with UTF-32 not all grapheme clusters fit into a single code point,
-        - so not:
-            - emoji with modifier characters like skin tone or variation selector,
-            - diacritical characters (äöü…, depending on the normal form chosen),
-            - surely some more …
-        - Often slower than UTF-8, due to its size (cache, memory bandwidth)
-- `Char` == `Char8`
-    - to iterate over all code units (bytes/characters) of an UTF-8 string,
-        - `for ch in "abc 🥸👮🏻".asArray()`
-        - `for ch in "abc 🥸👮🏻"utf8.asArray()`
-        - `for ch in UTF8String("abc 🥸👮🏻").asArray()`
-            - 0x61, 0x62, 0x63, 0x20, &nbsp; 0xf0, 0x9f, 0xa5, 0xb8, &nbsp; 0xf0, 0x9f, 0x91, 0xae, 0xf0, 0x9f, 0x8f, 0xbb
-    - to iterate over all bytes/characters of an ASCII string,
-        - `for ch in "abc"ascii`
-            - Compilation error, if string contains non-ASCII characters.
-        - `for ch in ASCIIString("abc")`
-            - Exception thrown, if string contains non-ASCII characters.
+- `ASCIIString`, a string containing only ASCII characters.
+    - Iteration over an `ASCIIString` or `ASCIIStringView` by `Char`==`Char8`==`Byte`
+        - `for char in "abc"ascii`
             - 0x61, 0x62, 0x63
             - 'a', 'b', 'c'
-    - to iterate over all bytes/characters of a Latin1 (ISO 8859-1) string,
-        - `for ch in "äbc"latin1`
-            - Compilation error, if string contains non-Latin1 characters.
-        - `for ch in Latin1String("äbc")`
-            - Exception thrown, if string contains non-Latin1 characters.
+            - Compilation error, if string contains non-ASCII characters.
+            - `same for for char in ASCIIString("abc")`
+                - but Exception thrown, if string contains non-ASCII characters.
+    - Implicitly convertable to `String`==`UTF8String`.
+        - Very fast conversion, as all characters have the same binary representation.
+- `Latin1String`, a string containing only Latin-1 (ISO 8859-1) characters.
+    - Iteration over an `Latin1String` or `Latin1StringView` by `Char`==`Char8`==`Byte`
+        - `for char in "äbc"latin1`
             - 0xe4, 0x62, 0x63
             - 'ä', 'b', 'c'
-- `Char16`
-    - to iterate over strings encoded as UTF-16 with `.asArray()`
-        - `for ch16 in "abc 🥸👮🏻"utf16.asArray()`
-        - `for ch16 in UTF16String("abc 🥸👮🏻").asArray()`
-            - 0x0061, 0x0062, 0x0063, 0x0020, &nbsp; 0xD83E, 0xDD78, &nbsp; 0xD83D, 0xDC6E, 0xD83C, 0xDFFB
-- `Char32`
-    - to iterate over strings encoded as UTF-32 with `.asArray()`
-        - `for ch32 in "abc 🥸👮🏻"utf32.asArray()`
-        - `for ch32 in UTF32String("abc 🥸👮🏻").asArray()`
-            - 0x00000061, 0x00000062, 0x00000063, 0x00000020, &nbsp; 0x0001F978, &nbsp; 0x0001F46E , 0x0001F3FB
+            - Compilation error, if string contains non-Latin-1 characters.
+            - `same for for char in ASCIIString("abc")`
+                - but Exception thrown, if string contains non-Latin1 characters.
+    - Explicitly convertable to `String`==`UTF8String`.
+        - Not so fast conversion as with ASCIIString, as typically some characters need to be translated into two UTF-8 code units.
 - `Char8`, `Char16`, `Char32`
     - are like `UInt8`, `UInt16`, `UInt32`,
     - but considered as _different_ types for parameter overloading.
