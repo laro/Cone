@@ -554,7 +554,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - `UInt8 h = -1`  // _Error_ because `-1` does _not_ fit into `UInt8`
         - `Int16 i = 32767` // Works
         - `Int32 j = 2'147'483'647` // Works
-        - `Int64 k = 9'223'372'036'854'775'807` // Works`
+        - `Int64 k = 9'223'372'036'854'775'807` // Works
         - `Int l = a`     // Works because `Int8` fits into `Int32`
         - `UInt m = l`    // _Error_ because `Int` does _not always_ fit into `UInt`
             - `UInt m = UInt(l)` // Works
