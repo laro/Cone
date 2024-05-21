@@ -716,7 +716,7 @@ Variable declaration still simply as `Int i`, as in C/C++.
 
 ## Misc
 - Operations with carry flag  
-  (to construct Int128, Int256 etc.)
+  (to implement `Int128`, `Int256` etc.)
     - `c = add(a, b, inout carry)`
     - `a.add(b, inout carry)`
     - `d = multiplyAdd(a, b, inout c)`
