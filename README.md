@@ -761,22 +761,22 @@ Variable declaration still simply as `Int i`, as in C/C++.
         - Use `Int*` for C/C++ arrays of arbitrary size
             - ```
               Int* array = new Int[4]
-               array[3] = 0
+              array[3] = 0
               array[4] = 0  // Runtime error, no bounds check
               ```
     - `Int[3, 2, 200]`
         - Multidimensional array
         - ```
-          Int[3, 2, 200] intArray3D
+          Int[3,2,200] intArray3D
            intArray3D[2, 1, 199] = 1
           ```
     - `int[,,]`
         - Multidimensional dynamic array
         - `cone::NArray<Int, 3>`
-        - or `Int[*, *, *]`?
+        - or `Int[*,*,*]`?
         - TODO Mixed forms?
-            - `Int[3, *, *]` 
-            - `Int[3, 4, *]`
+            - `Int[3,*,*]` 
+            - `Int[3,4,*]`
          
         
 - Matrix & Vector
