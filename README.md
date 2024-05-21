@@ -267,7 +267,7 @@ When we are at it, after a quick look at Python.
             - `for char in "abc"ascii`
                 - 0x61, 0x62, 0x63
                 - 'a', 'b', 'c'
-                - Compilation error, if string contains non-ASCII characters.
+                - Compilation error, if string literal contains non-ASCII characters.
                 - same for `for char in ASCIIString("abc")`
                     - but Exception thrown, if string contains non-ASCII characters.
         - Implicitly convertable to `String`==`UTF8String`.
@@ -277,7 +277,7 @@ When we are at it, after a quick look at Python.
             - `for char in "äbc"latin1`
                 - 0xe4, 0x62, 0x63
                 - 'ä', 'b', 'c'
-                - Compilation error, if string contains non-Latin-1 characters.
+                - Compilation error, if string literal contains non-Latin-1 characters.
                 - same for `for char in ASCIIString("abc")`
                     - but Exception thrown, if string contains non-Latin1 characters.
         - Explicitly convertable to `String`==`UTF8String`.
