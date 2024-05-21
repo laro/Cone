@@ -208,7 +208,8 @@ When we are at it, after a quick look at Python.
                     - Often slower than UTF-8, due to its size (cache, memory bandwidth).
             - **code units**
                 - represented by
-                    - `Char`==`Char8`==`Byte` for `UTF8String`==`String`
+                    - `Char` for `String`
+                    -   `Char`==`Char8`==`Byte`, `String`==`UTF8String`
                     - `Char16` with `UTF16String`
                     - `Char32` with `UTF32String`
                 - `for char8 in "abc 🥸👮🏻".asArray()`
@@ -219,7 +220,7 @@ When we are at it, after a quick look at Python.
                         - ? `for codeUnit in "abc 🥸👮🏻".asCodeUnits()`
                         - ~~`for codeUnit in text.byCodeUnit()`?~~
                         - ~~`for codeUnit in text.byChar()`?~~
-                - `for char16 in "abc 🥸👮🏻"utf16.asArray()`
+                - `for char16 in "abc 🥸👮🏻"`**`utf16`**`.asArray()`
                     - 0x0061, 0x0062, 0x0063, 0x0020,  &nbsp;  0xD83E, 0xDD78,  &nbsp;  0xD83D, 0xDC6E, 0xD83C, 0xDFFB
                     - same for `for char16 in UTF16String("abc 🥸👮🏻").asArray()`
                 - `for char32 in "abc 🥸👮🏻"`**`utf32`**`.asArray()`
