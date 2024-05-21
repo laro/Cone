@@ -727,24 +727,24 @@ Variable declaration still simply as `Int i`, as in C/C++.
 
 - For-in loop (instead of `for (… : …)` or `foreach`)
     - as in Rust, Swift
-    - With range literal also used instead of
-        - `for (Int i = 0; i < 10; ++i) { … }`
-            - `for i in 1..9`
-            - `for i in 1..<10`
-            - Not recommended, but possible
-                - `for i in Range(1, 10)`
-                - `for i in Range(10, 1, 1)`
-                - `for i in Range(10..1, 1)`
-        - `for (Int i = 10; i > 0; —i) { … }`
+    - With range literal also used instead of `for (Int i = 0; i < 10; ++i) { … }`
+        - `for i in 1..9`
+        - `for i in 1..<10`
+        - Not recommended, but possible
+            - `for i in Range(1, 10)`
+            - `for i in Range(10, 1, 1)`
+            - `for i in Range(10..1, 1)`
+        - Instead of `for (Int i = 10; i > 0; --i) { … }` use
             - `for i in 10..1:-1`
             - ? `for i in 10..>0:-1`
             - `for i in (1..10).reversed()`
             - Not recommended, but possible
                 - `for i in Range(10, 1, -1)`
                 - `for i in Range(10..1, -1)`
-                - `for i in 10 downTo 1 step 1`
-                - `for i in 10..1 by -1`
-                - `for i in 10..1 step -1`
+                - ~~`for i in 10 downTo 1 step 1`~~
+                - ~~`for i in 10..1 by -1`~~
+                - ~~`for i in 10..1 step -1`~~
+
 
 -  `if 1 <= x <= 10 { … }`
     - as in Python, Julia, Cpp2 (Herb Sutter)
