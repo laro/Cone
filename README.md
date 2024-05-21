@@ -827,14 +827,14 @@ Variable declaration still simply as `Int i`, as in C/C++.
     - "*.cone" – always the latest language version (if not defined otherwise via ".coneVersion")
     - "*.2024.cone" – Version from the year 2024
     - "*.2024b.cone" – Second version from the year 2024
-    - "*.cone2024" – Version from the year 2024
-    - "*.cone2024b" – Second version from the year 2024
-    - "*.cone_2024" – Version from the year 2024
-    - "*.cone_2024b" – Second version from the year 2024
-    - "*.c1a"
-    - "*.c1b"
-    - "*ConeA"
-        - "*.ConeB"
+    - ~~"*.cone2024" – Version from the year 2024~~
+    - ~~"*.cone2024b" – Second version from the year 2024~~
+    - ~~"*.cone_2024" – Version from the year 2024~~
+    - ~~"*.cone_2024b" – Second version from the year 2024~~
+    - ~~"*.c1a"~~
+    - ~~"*.c1b"~~
+    - ~~"*ConeA"~~
+        - ~~"*.ConeB"~~
          
               
 ## Fix C++ "wrong defaults"
