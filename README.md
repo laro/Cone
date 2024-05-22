@@ -4,7 +4,7 @@ I'd like to have the standard library / STL in the [style of Qt](https://wiki.qt
   
 **C++ with Simplified Syntax**  
 Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with existing code must be guaranteed.
-Cone is a wish language, and we do not take these two points into account.
+Cone can call into C++ (and vice versa), but is a separate language, so its syntax does not need to be backwards compatible.
 
 **C++ without Semicolons**  
 When we are at it, after a quick look at Python. 
