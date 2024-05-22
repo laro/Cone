@@ -1,6 +1,6 @@
 # Cone
 **C++ with CamelCase Style**  
-I'd like to have the standard library / STL in the style of Qt, and (a variant of) Qt with the standard library / STL classes as base. Alias names of members helps to get this.
+I'd like to have the standard library / STL in the style of Qt (but without the preifx "Q"), and (a variant of) Qt with the standard library / STL classes as base. Alias names of members helps to get this.
   
 **C++ with Simplified Syntax**  
 Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with existing code must be guaranteed.
