@@ -14,7 +14,7 @@ When we are at it, after a quick look at Python.
 - **Cone**, COne, cOne, c1, C1,  
   Pronounced "see one"
     - The names [D](https://dlang.org/), [C2](http://c2lang.org/), and [Cpp2](https://github.com/hsutter/cppfront#cppfront) were already taken `¯\_(ツ)_/¯`.
-        - Unfortunatly even "[Cone](https://cone.jondgoodwin.com/)" is already taken 😬
+        - Unfortunately  even "[Cone](https://cone.jondgoodwin.com/)" is already taken 😬
     - C-names seem popular, see [Carbon](https://github.com/carbon-language/carbon-lang) and [Circle](https://github.com/seanbaxter/circle).
     - Even C# is referencing C, despite beeing more like "MS Java" (BTW I like C# and Java).
 - "Improved" C++
