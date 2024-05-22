@@ -1,6 +1,6 @@
 # Cone
 **C++ with CamelCase Style**  
-I'd like to have the standard library / STL in the style of Qt (but without the preifx "Q"), and (a variant of) Qt with the standard library / STL classes as base. Alias names of members helps to get this.
+I'd like to have the standard library / STL in the [style of Qt](https://wiki.qt.io/Qt_Coding_Style) (but without the preifx "Q"), and (a variant of) Qt with the standard library / STL classes as base. Alias names of members helps to get this.
   
 **C++ with Simplified Syntax**  
 Many of C++'s shortcomings stem from the fact that it inherited from C or that backwards compatibility with existing code must be guaranteed.
@@ -18,7 +18,7 @@ When we are at it, after a quick look at Python.
     - Even C# is referencing C, despite beeing more like "MS Java" (BTW I like C# and Java).
 - "Improved" C++
     - with a **simplified** syntax,
-    - in the **style of Qt**, Objective-C, Java, JavaScript, Kotlin, Swift
+    - in the **[style of Qt](https://wiki.qt.io/Qt_Coding_Style)**, Objective-C, Java, JavaScript, Kotlin, Swift
     - Isomorphic mapping of all C++ functionality to Cone possible
         - only with other/better/shorter "expression".
     - C++ Successor Language
