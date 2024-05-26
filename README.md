@@ -6,4 +6,4 @@ I try it with [**Cilia**](CiliaLang.org) now.
 
 
 
-PS: I would be willing to give the domain [ConeLang.org](ConeLang.org) to Jon Goodwin, I was just not aware of his language.
+PS: I would be willing to give the domain [ConeLang.org](conelang.org) to Jon Goodwin, I was just not aware of his language.
